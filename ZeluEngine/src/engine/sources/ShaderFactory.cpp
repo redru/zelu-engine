@@ -1,0 +1,61 @@
+#include "../../engine/headers/ShaderFactory.h"
+
+ShaderFactory::ShaderFactory() {
+
+}
+
+ShaderProgram ShaderFactory::createShader(string vertexShaderPath, string fragmentShaderPath) {
+	string vertexShaderSource{ FileUtils::readFile(vertexShaderPath) };
+	const char* c_vertexShaderSource = vertexShaderSource.c_str();
+	string fragmentShaderSource{ FileUtils::readFile(fragmentShaderPath) };
+	const char* c_fragmentShaderSource = fragmentShaderSource.c_str();
+
+	GLenum ErrorCheckValue = glGetError();
+
+	GLuint VertexShaderId = glCreateShader(GL_VERTEX_SHADER);
+	glShaderSource(VertexShaderId, 1, &c_vertexShaderSource, NULL);
+	glCompileShader(VertexShaderId);
+	checkCompileError(VertexShaderId);
+
+	GLuint FragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
+	glShaderSource(FragmentShaderId, 1, &c_fragmentShaderSource, NULL);
+	glCompileShader(FragmentShaderId);
+	checkCompileError(FragmentShaderId);
+
+	GLuint ProgramId = glCreateProgram();
+	glAttachShader(ProgramId, VertexShaderId);
+	glAttachShader(ProgramId, FragmentShaderId);
+	glLinkProgram(ProgramId);
+
+	ErrorCheckValue = glGetError();
+	if (ErrorCheckValue != GL_NO_ERROR)
+	{
+		cout << "Error creating shader program: " << ErrorCheckValue << endl;
+
+		exit(-1);
+	}
+
+	ShaderProgram shad{ VertexShaderId, FragmentShaderId, ProgramId };
+	shad.putUniformLoc("u_mvpMatrix", glGetUniformLocation(ProgramId, "u_mvpMatrix"));
+	return shad;
+}
+
+void ShaderFactory::checkCompileError(GLuint shader) {
+	GLint isCompiled = 0;
+	glGetShaderiv(shader, GL_COMPILE_STATUS, &isCompiled);
+	if (isCompiled == GL_FALSE)
+	{
+		GLint maxLength = 0;
+		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
+
+		// The maxLength includes the NULL character
+		std::vector<GLchar> errorLog(maxLength);
+		glGetShaderInfoLog(shader, maxLength, &maxLength, &errorLog[0]);
+		cout << "SHADER ERROR:\n" << string{ errorLog.begin(), errorLog.end() } << endl;
+
+		// Provide the infolog in whatever manor you deem best.
+		// Exit with failure.
+		glDeleteShader(shader); // Don't leak the shader.
+		exit(-1);
+	}
+}

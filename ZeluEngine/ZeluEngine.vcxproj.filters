@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2c16d611-40a3-4853-a991-9998aeb5828f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine">
+      <UniqueIdentifier>{a0cde3c6-b090-48fe-8875-b82d01948d0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\headers">
+      <UniqueIdentifier>{4b034649-f57d-43e0-b963-5055ec431c89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\sources">
+      <UniqueIdentifier>{600e414f-3de4-4984-8a11-7a56cdc3bc8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\application">
+      <UniqueIdentifier>{9c164044-72a0-4997-a603-f7a9a40fb5cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\application\headers">
+      <UniqueIdentifier>{bf001fe2-ef18-4729-b002-e5473c9e7073}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\application\sources">
+      <UniqueIdentifier>{2ac8fabf-b23a-468f-9555-f62231b7d1e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\headers\utils">
+      <UniqueIdentifier>{471e3608-16a9-4d91-8a18-ce9122a77963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\sources\utils">
+      <UniqueIdentifier>{0d56179b-b2a2-4470-b124-8ae13c8893a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\resources">
+      <UniqueIdentifier>{1ac1db82-ebc1-4f84-86f3-a27d2cac1d2c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\ZeluEngine.cpp">
+      <Filter>src\engine\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\Actor.cpp">
+      <Filter>src\engine\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\EngineAction.cpp">
+      <Filter>src\engine\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\MatrixUtils.cpp">
+      <Filter>src\engine\sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\Camera.cpp">
+      <Filter>src\engine\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\RenderPhaseAction.cpp">
+      <Filter>src\application\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\FileUtils.cpp">
+      <Filter>src\engine\sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\ShaderFactory.cpp">
+      <Filter>src\engine\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\ShaderProgram.cpp">
+      <Filter>src\engine\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\Triangle.cpp">
+      <Filter>src\application\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\OriginLines.cpp">
+      <Filter>src\application\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\GridLines.cpp">
+      <Filter>src\application\sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\engine\headers\ZeluEngine.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\Actor.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\RenderHandler.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\EngineAction.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\Camera.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\MatrixUtils.h">
+      <Filter>src\engine\headers\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\RenderPhaseAction.h">
+      <Filter>src\application\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\FileUtils.h">
+      <Filter>src\engine\headers\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\ShaderFactory.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\ShaderProgram.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\Triangle.h">
+      <Filter>src\application\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\OriginLines.h">
+      <Filter>src\application\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\GridLines.h">
+      <Filter>src\application\headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
