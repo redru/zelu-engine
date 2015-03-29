@@ -9,14 +9,16 @@
 c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\camera.cpp(5): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
 c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\camera.cpp(6): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
   Actor.cpp
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(7): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(8): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(9): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(19): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(20): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(21): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
   Triangle.cpp
   RenderPhaseAction.cpp
   OriginLines.cpp
   GridLines.cpp
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\application\sources\gridlines.cpp(15): warning C4244: 'argomento': conversione da 'int' a 'const float'. Possibile perdita di dati.
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\application\sources\gridlines.cpp(18): warning C4244: 'argomento': conversione da 'int' a 'const float'. Possibile perdita di dati.
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\application\sources\gridlines.cpp(31): warning C4244: 'argomento': conversione da 'int' a 'const float'. Possibile perdita di dati.
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\application\sources\gridlines.cpp(34): warning C4244: 'argomento': conversione da 'int' a 'const float'. Possibile perdita di dati.
   Generazione del codice in corso...
   ZeluEngine.vcxproj -> C:\Users\Luca\Documents\GitHub\zelu-engine\\ZeluEngine\build\Debug\ZeluEngine.exe
   C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\shader_frag_struct.glsl

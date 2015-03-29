@@ -9,8 +9,6 @@
 #include "Actor.h"
 #include "ShaderProgram.h"
 
-using namespace std;
-
 const class ZeluEngine {
 
 public:
@@ -71,3 +69,23 @@ public:
 // -----------------------------------------------
 
 };
+
+inline vector< Actor >& ZeluEngine::getSceneActors() {
+	return *sceneActors;
+}
+
+inline void ZeluEngine::putShaderProgram(string name, ShaderProgram& shaderProgram) {
+	shaderProgramList->insert(std::pair< string, ShaderProgram >(name, shaderProgram));
+}
+
+inline ShaderProgram& ZeluEngine::getShaderProgram(string name) {
+	return shaderProgramList->find(name)->second;
+}
+
+inline map< string, ShaderProgram >& ZeluEngine::getShaderProgramList() {
+	return *shaderProgramList;
+}
+
+inline Camera& ZeluEngine::getCamera() {
+	return *camera;
+}

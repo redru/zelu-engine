@@ -7,9 +7,6 @@
 
 #include "../../engine/headers/MatrixUtils.h"
 
-using namespace std;
-using namespace glm;
-
 class Camera {
 
 public:
@@ -18,20 +15,27 @@ public:
 
 	void updateCamera();
 
-	void move(float upsetX, float upsetY, float upsetZ);
-	void rotate(float xRotationDegrees, float yRotationDegrees, float zRotationDegrees);
-	void setAspectRatio(float aspectRatio);
+	void move(float x_upset, float y_upset, float z_upset);
+	void rotate(float x_rotation_degrees, float y_rotation_degrees, float z_rotation_degrees);
+	void setAspectRatio(float aspect_ratio);
 	vector<float>& getMvpMatrix();
 	glm::mat4 getMatrix();
 
 private:
-	mat4* mvpMatrix;
-	const mat4* identityMatrix;
+	glm::mat4* mvp_matrix;
+	const glm::mat4* identity_matrix;
 
-	float fov = 45.0f, nearZ = 1.0f, farZ = 100.0f;
-	float aspectRatio = 0.0f;
+	float fov = 45.0f;
+	float near_z = 1.0f;
+	float far_z = 100.0f;
+	float aspect_ratio = 0.0f;
 
-	float xCam = 0.0f, yCam = 0.0f, zCam = 0.0f;
-	float xRotation = 0, yRotation = 0, zRotation = 0;
+	float x_cam = 0.0f;
+	float y_cam = 0.0f;
+	float z_cam = 0.0f;
+
+	float x_rotation = 0;
+	float y_rotation = 0;
+	float z_rotation = 0;
 
 };

@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "GL\glew.h"
+#include <GL\glew.h>
+
+# include "Constants.h"
 #include "../../engine/headers/ZeluEngine.h"
 
 using namespace std;

@@ -80,9 +80,6 @@
     <ClInclude Include="src\engine\headers\Actor.h">
       <Filter>src\engine\headers</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\headers\RenderHandler.h">
-      <Filter>src\engine\headers</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\headers\EngineAction.h">
       <Filter>src\engine\headers</Filter>
     </ClInclude>
@@ -112,6 +109,15 @@
     </ClInclude>
     <ClInclude Include="src\application\headers\GridLines.h">
       <Filter>src\application\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\Constants.h">
+      <Filter>src\application\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\Model.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\RenderHandlerInterface.h">
+      <Filter>src\engine\headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

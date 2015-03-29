@@ -73,7 +73,7 @@ void OriginLines::draw() {
 	};
 
 	ZeluEngine& engine{ ZeluEngine::getInstance() };
-	ShaderProgram& prog{ ZeluEngine::getInstance().getShaderProgram("shader_vert_struct") };
+	ShaderProgram& prog{ ZeluEngine::getInstance().getShaderProgram(CONSTANTS::SHADER_STRUCT) };
 	glUniformMatrix4fv(prog.getUniformLoc("u_mvpMatrix"), 1, false, (GLfloat*)&engine.getCamera().getMatrix());
 
 	glUseProgram(prog.getProgramId());

@@ -3,12 +3,11 @@
 #include <SFML\Window.hpp>
 #include <GL\glew.h>
 
+#include "application\headers\Constants.h"
 #include "engine\headers\ZeluEngine.h"
 #include "engine\headers\ShaderFactory.h"
 #include "engine\headers\ShaderProgram.h"
 #include "application\headers\RenderPhaseAction.h"
-
-using namespace std;
 
 RenderPhaseAction* renderPhase;
 ShaderProgram* shaderProgram;
@@ -28,19 +27,16 @@ int main() {
 	while (running)
 	{
 		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-			{
+		while (window.pollEvent(event)) {
+
+			if (event.type == sf::Event::Closed) {
 				running = false;
-			}
-			else if (event.type == sf::Event::Resized)
-			{
+			} else if (event.type == sf::Event::Resized) {
 				glViewport(0, 0, event.size.width, event.size.height);
 
 				// Camera aspect ratio adjustment
-				cout << "Window - Width: " << event.size.width << " - Height: " << event.size.height << endl;
-				cout << "Window - Aspect Ratio: " << (float)event.size.width / (float)event.size.height << endl;
+				std::cout << "Window - Width: " << event.size.width << " - Height: " << event.size.height << std::endl;
+				std::cout << "Window - Aspect Ratio: " << (float)event.size.width / (float)event.size.height << std::endl;
 				engine->getCamera().setAspectRatio((float)event.size.width / (float)event.size.height);
 				engine->getCamera().updateCamera();
 			}
@@ -65,11 +61,11 @@ void applicationInitialize(ZeluEngine& engine) {
 	// Opengl and Glew initialize
 	GLenum GlewInitResult{};
 	if (GLEW_OK != GlewInitResult) {
-		cout << "Error during glew startup: " << GlewInitResult << endl;
+		std::cout << "Error during glew startup: " << GlewInitResult << std::endl;
 		exit(EXIT_FAILURE);
 	}
 
-	cout << "INFO: OpenGL Version: " << glGetString(GL_VERSION) << endl;
+	std::cout << "INFO: OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
 
 	glewExperimental = GL_TRUE;
 	GlewInitResult = glewInit();
@@ -77,15 +73,18 @@ void applicationInitialize(ZeluEngine& engine) {
 	// Zelu engine -----------------------------------------------------------------------------------------
 	engine.startup();
 
+	// Shaders
 	ShaderFactory shaderFac{};
-	shaderProgram = new ShaderProgram{ shaderFac.createShader("build/Debug/glsl/shader_vert_struct.glsl", "build/Debug/glsl/shader_frag_struct.glsl") };
-	engine.putShaderProgram("shader_vert_struct", *shaderProgram);
+	shaderProgram = new ShaderProgram{ shaderFac.createShader(CONSTANTS::SHADERS_PATH + "shader_vert_struct.glsl", CONSTANTS::SHADERS_PATH + "shader_frag_struct.glsl") };
+	engine.putShaderProgram(CONSTANTS::SHADER_STRUCT, *shaderProgram);
 
+	// Camera
 	engine.getCamera().move(0.0f, 0.0f, -16.0f);
 	engine.getCamera().rotate(-30.0f, 180.0f, 0.0f);
 	engine.getCamera().setAspectRatio(800.0f / 600.0f);
 	engine.getCamera().updateCamera();
 	
+	// Engine phases
 	renderPhase = new RenderPhaseAction{ true };
 	engine.setPhaseAction(*renderPhase, ZeluEngine::Phase::RENDER);
 	// ------------------------------------------------------------------------------------------------------

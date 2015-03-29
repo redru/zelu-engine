@@ -1,36 +1,96 @@
 #pragma once
+#include <iostream>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/glm.hpp>
 
-#include "RenderHandler.h"
+#include "RenderHandlerInterface.h"
+#include "Model.h"
 
 class Actor {
 
 public:
-	// Constructor
 	Actor();
-
-	// Destructor
+	Actor(Model& model, RenderHandlerInterface& render_handler, bool active);
 	~Actor();
 
-	// Call to this function uploads basic information to the renderHandler
+	// Methods for transformations -------------------------------------------
+	void scale(float x_scale_upset, float y_scale_upset, float z_scale_upset);
+	void rotate(float x_rot_upset, float y_rot_upset, float z_rot_upset);
+	void translate(float x_pos_upset, float y_pos_upset, float z_pos_upset);
+	void translateToPosition(float x_pos, float y_pos, float z_pos);
+	void updateTransformations();
+
+	// Methods for accessing the render_handler ------------------------------
 	void renderHandlerSetup();
-
-	// Upload render data function
-	void uploadRenderData();
-
-	// Render function
 	void render();
 
-	// Getters / Setters --------------------------------
-	void setRenderHandler(RenderHandler& renderHandler);
-	RenderHandler& getRenderHandler();
+	// Getters / Setters -----------------------------------------------------
+	void setRenderHandler(RenderHandlerInterface& render_handler);
+	RenderHandlerInterface& getRenderHandler();
 
 	void setActive(bool active);
 	bool isActive();
-	// --------------------------------------------------
 
 private:
-	bool active;
+	float x_start = 0, y_start = 0, z_start = 0;
 
-	RenderHandler* renderHandler;
+	float x_pos = 0, y_pos = 0, z_pos = 0;
+	float x_sca = 0, y_sca = 0, z_sca = 0;
+	float x_rot = 0, y_rot = 0, z_rot = 0;
+
+	float x_acc = 0, y_acc = 0, z_acc = 0;
+	float x_vel = 0, y_vel = 0, z_vel = 0;
+
+	bool active = false;
+
+	glm::mat4* scalation_matrix;
+	glm::mat4* rotation_matrix;
+	glm::mat4* rotation_support_matrix;
+	glm::mat4* translation_matrix;
+
+	RenderHandlerInterface* render_handler;
+	Model* model;
 
 };
+
+inline void Actor::scale(float x_scale_upset, float y_scale_upset, float z_scale_upset) {
+	this->x_sca += x_scale_upset;
+	this->y_sca += y_scale_upset;
+	this->z_sca += z_scale_upset;
+}
+
+inline void Actor::rotate(float x_rot_upset, float y_rot_upset, float z_rot_upset) {
+	this->x_rot += x_rot_upset;
+	this->y_rot += y_rot_upset;
+	this->z_rot += z_rot_upset;
+}
+
+inline void Actor::translate(float x_pos_upset, float y_pos_upset, float z_pos_upset){
+	this->x_pos += x_pos_upset;
+	this->y_pos += y_pos_upset;
+	this->z_pos += z_pos_upset;
+}
+
+inline void Actor::translateToPosition(float x_pos, float y_pos, float z_pos) {
+	this->x_pos = x_pos;
+	this->y_pos = y_pos;
+	this->z_pos = z_pos;
+}
+
+// Getters / Setters ---------------------------------------------------------
+inline void Actor::setActive(bool active) {
+	this->active = active;
+}
+
+inline bool Actor::isActive() {
+	return active;
+}
+
+inline void Actor::setRenderHandler(RenderHandlerInterface& render_handler) {
+	this->render_handler = &render_handler;
+}
+
+inline RenderHandlerInterface& Actor::getRenderHandler() {
+	return *this->render_handler;
+}
+// ---------------------------------------------------------------------------

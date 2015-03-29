@@ -5,8 +5,6 @@
 #include "OriginLines.h"
 #include "GridLines.h"
 
-using namespace std;
-
 class RenderPhaseAction : public EngineAction {
 
 public:

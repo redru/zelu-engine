@@ -2,44 +2,45 @@
 
 // CONSTRUCTORS AND DESTRUCTORS -------------------------------------------------------------------
 Camera::Camera() {
-	mvpMatrix = new mat4{ 1 };
-	identityMatrix = new mat4{ 1 };
+	mvp_matrix = new glm::mat4{ 1 };
+	identity_matrix = new glm::mat4{ 1 };
 
-	cout << "Camera - Creation complete." << endl;
+	std::cout << "Camera - Creation complete." << std::endl;
 }
 
-Camera::~Camera() { }
+Camera::~Camera() {
+	std::cout << "Camera - Destructor." << std::endl;
+}
 // IMPLEMENTATIONS --------------------------------------------------------------------------------
 void Camera::updateCamera() {
-	if (aspectRatio != 0.0f) {
-		glm::mat4 Projection = glm::perspective(fov, aspectRatio, nearZ, farZ);
-		glm::mat4 ViewTranslate = glm::translate(glm::mat4(1.0f), glm::vec3{xCam, yCam, zCam});
-		glm::mat4 ViewRotateX = glm::rotate(ViewTranslate, yRotation, glm::vec3{0.0f, 1.0f, 0.0f});
-		glm::mat4 View = glm::rotate(ViewRotateX, xRotation, glm::vec3{ 1.0f, 0.0f, 0.0f });
-		glm::mat4 Model = glm::mat4(1.0f);
+	if (aspect_ratio != 0.0f) {
+		glm::mat4 Projection = glm::perspective(fov, aspect_ratio, near_z, far_z);
+		glm::mat4 ViewTranslate = glm::translate(glm::mat4(1.0f), glm::vec3{ x_cam, y_cam, z_cam });
+		glm::mat4 ViewRotateX = glm::rotate(ViewTranslate, y_rotation, glm::vec3{ 0.0f, 1.0f, 0.0f });
+		glm::mat4 View = glm::rotate(ViewRotateX, x_rotation, glm::vec3{ 1.0f, 0.0f, 0.0f });
 	
-		*mvpMatrix = Projection * View * Model;
+		*mvp_matrix = Projection * View;
 	} else {
-		*mvpMatrix = *identityMatrix;
+		*mvp_matrix = *identity_matrix;
 	}
 }
 
-void Camera::move(float upsetX, float upsetY, float upsetZ) {
-	xCam += upsetX;
-	yCam += upsetY;
-	zCam += upsetZ;
+void Camera::move(float x_upset, float y_upset, float z_upset) {
+	x_cam += x_upset;
+	y_cam += y_upset;
+	z_cam += z_upset;
 }
 
-void Camera::rotate(float xRotationDegrees, float yRotationDegrees, float zRotationDegrees) {
-	xRotation += float(xRotationDegrees * MatrixUtils::PI / 180);
-	yRotation += float(yRotationDegrees * MatrixUtils::PI / 180);
-	zRotation += float(zRotationDegrees * MatrixUtils::PI / 180);
+void Camera::rotate(float x_rotation_degrees, float y_rotation_degrees, float z_rotation_degrees) {
+	x_rotation += float(x_rotation_degrees * MatrixUtils::PI / 180);
+	y_rotation += float(y_rotation_degrees * MatrixUtils::PI / 180);
+	z_rotation += float(z_rotation_degrees * MatrixUtils::PI / 180);
 }
 
-void Camera::setAspectRatio(float aspectRatio) {
-	this->aspectRatio = aspectRatio;
+void Camera::setAspectRatio(float aspect_ratio) {
+	this->aspect_ratio = aspect_ratio;
 }
 
 glm::mat4 Camera::getMatrix() {
-	return *mvpMatrix;
+	return *mvp_matrix;
 }

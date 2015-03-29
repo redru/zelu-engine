@@ -1,7 +1,8 @@
 #include "../headers/ZeluEngine.h"
 
 ZeluEngine* ZeluEngine::instance;
-
+// ------------------------------------------------------------------------------------ //
+// ------------------------------------------------------------------------------------ //
 ZeluEngine::ZeluEngine() {
 	sceneActors = new vector < Actor >(40);
 	shaderProgramList = new map < string, ShaderProgram >();
@@ -10,14 +11,17 @@ ZeluEngine::ZeluEngine() {
 ZeluEngine::~ZeluEngine() {
 
 }
-
+// ------------------------------------------------------------------------------------ //
+// ------------------------------------------------------------------------------------ //
 void ZeluEngine::startup() {
+	std::cout << "Zelu Engine - Starting." << std::endl;
 	// Engine modules loading
 	camera = new Camera();
 
-	cout << "Zelu Engine correctly started." << endl;
+	std::cout << "Zelu Engine - Correctly started." << std::endl;
 }
-
+// ------------------------------------------------------------------------------------ //
+// ------------------------------------------------------------------------------------ //
 void ZeluEngine::executePhases() {
 	if (preUpdatePhase != NULL && preUpdatePhase->isActive()) {
 		preUpdatePhase->execute();
@@ -40,7 +44,8 @@ void ZeluEngine::executePhases() {
 		renderPhase->execute();
 	}
 }
-
+// ------------------------------------------------------------------------------------ //
+// ------------------------------------------------------------------------------------ //
 void ZeluEngine::setPhaseAction(EngineAction& engineAction, Phase phase) {
 	switch (phase) {
 		case ZeluEngine::PRE_UPDATE:
@@ -62,23 +67,5 @@ void ZeluEngine::setPhaseAction(EngineAction& engineAction, Phase phase) {
 			break;
 	}
 }
-
-vector< Actor >& ZeluEngine::getSceneActors() {
-	return *sceneActors;
-}
-
-void ZeluEngine::putShaderProgram(string name, ShaderProgram& shaderProgram) {
-	shaderProgramList->insert(std::pair< string, ShaderProgram >(name, shaderProgram));
-}
-
-ShaderProgram& ZeluEngine::getShaderProgram(string name) {
-	return shaderProgramList->find("shader_vert_struct")->second;
-}
-
-map< string, ShaderProgram >& ZeluEngine::getShaderProgramList() {
-	return *shaderProgramList;
-}
-
-Camera& ZeluEngine::getCamera() {
-	return *camera;
-}
+// ------------------------------------------------------------------------------------ //
+// ------------------------------------------------------------------------------------ //

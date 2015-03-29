@@ -6,8 +6,8 @@ GridLines::GridLines() {
 
 	it = vertexData->begin();
 
-	int MIN_VERTEX = -50;
-	int MAX_VERTEX = 50;
+	float MIN_VERTEX = -50;
+	float MAX_VERTEX = 50;
 
 	for (int count = -30, i = 0; count < 30; count++) {
 		for (unsigned e = 0; e < 4; e++) {
@@ -75,7 +75,7 @@ GridLines::~GridLines() {
 	ErrorCheckValue = glGetError();
 
 	if (ErrorCheckValue != GL_NO_ERROR) {
-		cout << "Error destroying object Triangle: " << ErrorCheckValue << endl;
+		std::cout << "Error destroying object Triangle: " << ErrorCheckValue << std::endl;
 		exit(-1);
 	}
 }
@@ -103,7 +103,7 @@ void GridLines::openglMeshSetup() {
 
 	ErrorCheckValue = glGetError();
 	if (ErrorCheckValue != GL_NO_ERROR) {
-		cout << "Error creating Triangle buffers: " << ErrorCheckValue << endl;
+		std::cout << "Error creating Triangle buffers: " << ErrorCheckValue << std::endl;
 		exit(-1);
 	}
 }
@@ -120,7 +120,7 @@ void GridLines::draw() {
 	};
 
 	ZeluEngine& engine{ ZeluEngine::getInstance() };
-	ShaderProgram& prog{ ZeluEngine::getInstance().getShaderProgram("shader_vert_struct") };
+	ShaderProgram& prog{ engine.getShaderProgram(CONSTANTS::SHADER_STRUCT) };
 	glUniformMatrix4fv(prog.getUniformLoc("u_mvpMatrix"), 1, false, (GLfloat*)&engine.getCamera().getMatrix());
 
 	glUseProgram(prog.getProgramId());
