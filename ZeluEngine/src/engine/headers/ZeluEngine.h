@@ -4,6 +4,8 @@
 #include <map>
 #include <GL\glew.h>
 
+#include "ModelFactory.h"
+#include "Model.h"
 #include "Camera.h"
 #include "EngineAction.h"
 #include "Actor.h"
@@ -30,13 +32,14 @@ public:
 	void setPhaseAction(EngineAction& engineAction, Phase phase);
 	void putShaderProgram(string name, ShaderProgram& shader);
 	ShaderProgram& getShaderProgram(string name);
-	map< string, ShaderProgram >& getShaderProgramList();
-	vector< Actor >& getSceneActors();
+	std::map< string, ShaderProgram >& getShaderProgramList();
+	std::vector< Actor >& getSceneActors();
 	Camera& getCamera();
+	ModelFactory& getModelFactory();
 
 private:
-	vector< Actor >* sceneActors;
-	map<string, ShaderProgram>* shaderProgramList;
+	std::vector< Actor >* sceneActors;
+	std::map<string, ShaderProgram>* shaderProgramList;
 
 	EngineAction* preUpdatePhase;
 	EngineAction* updatePhase;
@@ -45,6 +48,7 @@ private:
 	EngineAction* renderPhase;
 
 	Camera* camera;
+	ModelFactory* modelFactory;
 
 // ---------------- SINGLETON --------------------
 private:
@@ -88,4 +92,8 @@ inline map< string, ShaderProgram >& ZeluEngine::getShaderProgramList() {
 
 inline Camera& ZeluEngine::getCamera() {
 	return *camera;
+}
+
+inline ModelFactory& ZeluEngine::getModelFactory() {
+	return *modelFactory;
 }

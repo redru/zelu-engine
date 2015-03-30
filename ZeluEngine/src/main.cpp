@@ -17,6 +17,7 @@ void applicationInitialize(ZeluEngine& engine);
 int main() {
 	// create the window
 	sf::Window window(sf::VideoMode(800, 600), "ZeluEngine TEST", sf::Style::Default, sf::ContextSettings(32));
+	window.setFramerateLimit(CONSTANTS::APPL_FRAMERATE);
 	window.setVerticalSyncEnabled(true);
 
 	ZeluEngine* engine = &ZeluEngine::getInstance();
@@ -75,8 +76,11 @@ void applicationInitialize(ZeluEngine& engine) {
 
 	// Shaders
 	ShaderFactory shaderFac{};
-	shaderProgram = new ShaderProgram{ shaderFac.createShader(CONSTANTS::SHADERS_PATH + "shader_vert_struct.glsl", CONSTANTS::SHADERS_PATH + "shader_frag_struct.glsl") };
+	shaderProgram = new ShaderProgram{ shaderFac.createShader(CONSTANTS::SHADER_PATH + "shader_vert_struct.glsl", CONSTANTS::SHADER_PATH + "shader_frag_struct.glsl") };
 	engine.putShaderProgram(CONSTANTS::SHADER_STRUCT, *shaderProgram);
+
+	// Models
+	engine.getModelFactory().loadModel("B2SPIRIT", CONSTANTS::MODEL_PATH + "obj_b2spirit.obj");
 
 	// Camera
 	engine.getCamera().move(0.0f, 0.0f, -16.0f);

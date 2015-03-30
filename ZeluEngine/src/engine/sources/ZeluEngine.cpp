@@ -17,6 +17,7 @@ void ZeluEngine::startup() {
 	std::cout << "Zelu Engine - Starting." << std::endl;
 	// Engine modules loading
 	camera = new Camera();
+	modelFactory = new ModelFactory();
 
 	std::cout << "Zelu Engine - Correctly started." << std::endl;
 }

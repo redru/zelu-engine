@@ -72,6 +72,12 @@
     <ClCompile Include="src\application\sources\GridLines.cpp">
       <Filter>src\application\sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine\sources\ModelFactory.cpp">
+      <Filter>src\engine\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\Model.cpp">
+      <Filter>src\engine\sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\headers\ZeluEngine.h">
@@ -117,6 +123,12 @@
       <Filter>src\engine\headers</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\headers\RenderHandlerInterface.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\ModelFactory.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\DynamicActorInterface.h">
       <Filter>src\engine\headers</Filter>
     </ClInclude>
   </ItemGroup>

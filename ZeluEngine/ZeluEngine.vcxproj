@@ -63,7 +63,7 @@
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;glew32d.lib;OpenGL32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(ProjectDir)src\application\resources" "$(TargetDir)\glsl" /e /y /i /r</Command>
+      <Command>xcopy "$(ProjectDir)src\application\resources" "$(TargetDir)\resources" /e /y /i /r</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -94,6 +94,8 @@
     <ClCompile Include="src\engine\sources\EngineAction.cpp" />
     <ClCompile Include="src\engine\sources\FileUtils.cpp" />
     <ClCompile Include="src\engine\sources\MatrixUtils.cpp" />
+    <ClCompile Include="src\engine\sources\Model.cpp" />
+    <ClCompile Include="src\engine\sources\ModelFactory.cpp" />
     <ClCompile Include="src\engine\sources\ShaderProgram.cpp" />
     <ClCompile Include="src\engine\sources\ShaderFactory.cpp" />
     <ClCompile Include="src\engine\sources\ZeluEngine.cpp" />
@@ -107,10 +109,12 @@
     <ClInclude Include="src\application\headers\Triangle.h" />
     <ClInclude Include="src\engine\headers\Actor.h" />
     <ClInclude Include="src\engine\headers\Camera.h" />
+    <ClInclude Include="src\engine\headers\DynamicActorInterface.h" />
     <ClInclude Include="src\engine\headers\EngineAction.h" />
     <ClInclude Include="src\engine\headers\FileUtils.h" />
     <ClInclude Include="src\engine\headers\MatrixUtils.h" />
     <ClInclude Include="src\engine\headers\Model.h" />
+    <ClInclude Include="src\engine\headers\ModelFactory.h" />
     <ClInclude Include="src\engine\headers\RenderHandlerInterface.h" />
     <ClInclude Include="src\engine\headers\ShaderProgram.h" />
     <ClInclude Include="src\engine\headers\ShaderFactory.h" />
