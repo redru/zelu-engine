@@ -78,6 +78,9 @@
     <ClCompile Include="src\engine\sources\Model.cpp">
       <Filter>src\engine\sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\application\sources\TexturedRenderHandler.cpp">
+      <Filter>src\application\sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\headers\ZeluEngine.h">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="src\engine\headers\DynamicActorInterface.h">
       <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\TexturedRenderHandler.h">
+      <Filter>src\application\headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

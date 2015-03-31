@@ -4,8 +4,8 @@ ZeluEngine* ZeluEngine::instance;
 // ------------------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------------------ //
 ZeluEngine::ZeluEngine() {
-	sceneActors = new vector < Actor >(40);
-	shaderProgramList = new map < string, ShaderProgram >();
+	sceneActors = new vector < Actor > {};
+	shaderProgramList = new map < string, ShaderProgram > {};
 }
 
 ZeluEngine::~ZeluEngine() {

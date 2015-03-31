@@ -31,11 +31,12 @@ Actor::~Actor() {
 
 
 void Actor::renderHandlerSetup() {
-	render_handler->setup();
+	render_handler->setup(*model);
 }
 
 void Actor::render() {
-	render_handler->render(*translation_matrix);
+	glm::mat4 tmp{ 1 };
+	render_handler->render(tmp, model->getUnifiedData().size() / 7 / 3);
 }
 
 void Actor::updateTransformations() {

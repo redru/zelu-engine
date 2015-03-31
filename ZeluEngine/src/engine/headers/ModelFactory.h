@@ -1,4 +1,5 @@
 #pragma once
+#include <stdlib.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,7 +19,7 @@ public:
 	Model& getModel(std::string name);
 
 private:
-	void wrapModel(std::vector<std::string>& model);
+	void wrapModel(std::string modelName, std::vector<std::string>& model);
 	
 private:
 	std::map<std::string, Model>* modelStock;

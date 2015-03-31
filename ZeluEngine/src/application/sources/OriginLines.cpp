@@ -64,14 +64,6 @@ void OriginLines::openglMeshSetup() {
 void OriginLines::draw() {
 	glBindVertexArray(VaoId);
 
-	GLfloat obj[16] =
-	{
-		1.0f, 0.0f, 0.0f, 1.0f,
-		0.0f, 1.0f, 0.0f, 1.0f,
-		0.0f, 0.0f, 1.0f, 1.0f,
-		0.0f, 0.0f, 0.0f, 1.0f
-	};
-
 	ZeluEngine& engine{ ZeluEngine::getInstance() };
 	ShaderProgram& prog{ ZeluEngine::getInstance().getShaderProgram(CONSTANTS::SHADER_STRUCT) };
 	glUniformMatrix4fv(prog.getUniformLoc("u_mvpMatrix"), 1, false, (GLfloat*)&engine.getCamera().getMatrix());

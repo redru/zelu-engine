@@ -1,5 +1,4 @@
-﻿  ModelFactory.cpp
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\modelfactory.cpp(27): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+﻿  main.cpp
   ZeluEngine.vcxproj -> C:\Users\Luca\Documents\GitHub\zelu-engine\\ZeluEngine\build\Debug\ZeluEngine.exe
   C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_frag_struct.glsl
   C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_vert_struct.glsl

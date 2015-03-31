@@ -88,6 +88,7 @@
     <ClCompile Include="src\application\sources\GridLines.cpp" />
     <ClCompile Include="src\application\sources\OriginLines.cpp" />
     <ClCompile Include="src\application\sources\RenderPhaseAction.cpp" />
+    <ClCompile Include="src\application\sources\TexturedRenderHandler.cpp" />
     <ClCompile Include="src\application\sources\Triangle.cpp" />
     <ClCompile Include="src\engine\sources\Actor.cpp" />
     <ClCompile Include="src\engine\sources\Camera.cpp" />
@@ -106,6 +107,7 @@
     <ClInclude Include="src\application\headers\GridLines.h" />
     <ClInclude Include="src\application\headers\OriginLines.h" />
     <ClInclude Include="src\application\headers\RenderPhaseAction.h" />
+    <ClInclude Include="src\application\headers\TexturedRenderHandler.h" />
     <ClInclude Include="src\application\headers\Triangle.h" />
     <ClInclude Include="src\engine\headers\Actor.h" />
     <ClInclude Include="src\engine\headers\Camera.h" />

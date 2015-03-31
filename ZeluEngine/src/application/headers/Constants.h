@@ -11,4 +11,6 @@ const std::string SHADER_PATH = "build/Debug/resources/glsl/";
 
 const std::string MODEL_PATH = "build/Debug/resources/models/";
 
+const std::string SPIRIT_MODEL_NAME = "B2SPIRIT";
+
 #endif

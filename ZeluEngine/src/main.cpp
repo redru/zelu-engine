@@ -80,11 +80,11 @@ void applicationInitialize(ZeluEngine& engine) {
 	engine.putShaderProgram(CONSTANTS::SHADER_STRUCT, *shaderProgram);
 
 	// Models
-	engine.getModelFactory().loadModel("B2SPIRIT", CONSTANTS::MODEL_PATH + "obj_b2spirit.obj");
+	engine.getModelFactory().loadModel(CONSTANTS::SPIRIT_MODEL_NAME, CONSTANTS::MODEL_PATH + "obj_b2spirit.obj");
 
 	// Camera
-	engine.getCamera().move(0.0f, 0.0f, -16.0f);
-	engine.getCamera().rotate(-30.0f, 180.0f, 0.0f);
+	engine.getCamera().move(0.0f, 0.0f, -24.0f);
+	engine.getCamera().rotate(30.0f, 180.0f, 0.0f);
 	engine.getCamera().setAspectRatio(800.0f / 600.0f);
 	engine.getCamera().updateCamera();
 	
