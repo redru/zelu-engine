@@ -4,8 +4,7 @@ ZeluEngine* ZeluEngine::instance;
 // ------------------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------------------ //
 ZeluEngine::ZeluEngine() {
-	sceneActors = new vector < Actor > { 40 };
-	shaderProgramList = new map < string, ShaderProgram > {};
+
 }
 
 ZeluEngine::~ZeluEngine() {
@@ -16,8 +15,7 @@ ZeluEngine::~ZeluEngine() {
 void ZeluEngine::startup() {
 	std::cout << "Zelu Engine - Starting." << std::endl;
 	// Engine modules loading
-	camera = new Camera();
-	modelFactory = new ModelFactory();
+	engine_context = &ZeluEngineContext::getInstance();
 
 	std::cout << "Zelu Engine - Correctly started." << std::endl;
 }

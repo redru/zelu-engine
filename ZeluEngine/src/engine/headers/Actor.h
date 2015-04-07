@@ -35,14 +35,14 @@ public:
 	bool isActive();
 
 private:
-	float x_start = 0, y_start = 0, z_start = 0;
+	float x_start = 0.0f, y_start = 0.0f, z_start = 0.0f;
 
-	float x_pos = 0, y_pos = 0, z_pos = 0;
-	float x_sca = 0, y_sca = 0, z_sca = 0;
-	float x_rot = 0, y_rot = 0, z_rot = 0;
+	float x_pos = 0.0f, y_pos = 0.0f, z_pos = 0.0f;
+	float x_sca = 1.0f, y_sca = 1.0f, z_sca = 1.0f;
+	float x_rot = 0.0f, y_rot = 0.0f, z_rot = 0.0f;
 
-	float x_acc = 0, y_acc = 0, z_acc = 0;
-	float x_vel = 0, y_vel = 0, z_vel = 0;
+	float x_acc = 0.0f, y_acc = 0.0f, z_acc = 0.0f;
+	float x_vel = 0.0f, y_vel = 0.0f, z_vel = 0.0f;
 
 	bool active;
 
@@ -56,6 +56,7 @@ private:
 
 };
 
+/* INLINED METHODS */
 inline void Actor::scale(float x_scale_upset, float y_scale_upset, float z_scale_upset) {
 	this->x_sca += x_scale_upset;
 	this->y_sca += y_scale_upset;
@@ -80,7 +81,7 @@ inline void Actor::translateToPosition(float x_pos, float y_pos, float z_pos) {
 	this->z_pos = z_pos;
 }
 
-// Getters / Setters ---------------------------------------------------------
+/* GETTERS / SETTERS */
 inline void Actor::setActive(bool active) {
 	this->active = active;
 }

@@ -4,6 +4,7 @@
 #include <map>
 #include <GL\glew.h>
 
+#include "ZeluEngineContext.h"
 #include "ModelFactory.h"
 #include "Model.h"
 #include "Camera.h"
@@ -23,24 +24,33 @@ public:
 	};
 
 public:
-	// Engine startup function
+
+/************************ ENGINE *************************/
+
 	void startup();
-
-	// Phase actions invocation
 	void executePhases();
-
 	void setPhaseAction(EngineAction& engineAction, Phase phase);
+
+	/*********************** SHADERS *************************/
+
 	void putShaderProgram(string name, ShaderProgram& shader);
 	ShaderProgram& getShaderProgram(string name);
-	std::map< string, ShaderProgram >& getShaderProgramList();
+
+	/************************ SCENE **************************/
+
 	std::vector< Actor >& getSceneActors();
 	Actor& getFirstUnusedActor();
+	void renderSceneActors();
+
+	/*********************** CAMERA **************************/
+
 	Camera& getCamera();
 	ModelFactory& getModelFactory();
 
+/********************************************************/
+
 private:
-	std::vector< Actor >* sceneActors;
-	std::map<string, ShaderProgram>* shaderProgramList;
+	ZeluEngineContext* engine_context;
 
 	EngineAction* preUpdatePhase;
 	EngineAction* updatePhase;
@@ -48,10 +58,7 @@ private:
 	EngineAction* postUpdatePhase;
 	EngineAction* renderPhase;
 
-	Camera* camera;
-	ModelFactory* modelFactory;
-
-// ---------------- SINGLETON --------------------
+/********************** SINGLETON ***************************/
 private:
 	// Constructor
 	ZeluEngine();
@@ -71,40 +78,47 @@ public:
 
 		return *instance;
 	}
-// -----------------------------------------------
+/************************************************************/
 
 };
 
+/************************ INLINE ****************************/
 inline vector< Actor >& ZeluEngine::getSceneActors() {
-	return *sceneActors;
+	return *engine_context->scene_actors;
 }
 
 inline Actor& ZeluEngine::getFirstUnusedActor() {
 	// Look in the actors list
-	for (auto& actor : *sceneActors) {
+	for (auto& actor : *engine_context->scene_actors) {
 		// Return selected actor if inactive
 		if (!actor.isActive()) {
 			return actor;
 		}
 	}
+
+	return *engine_context->void_actor;
+}
+
+inline void ZeluEngine::renderSceneActors() {
+	for (auto& actor : *engine_context->scene_actors) {
+		if (actor.isActive()) {
+			actor.render();
+		}
+	}
 }
 
 inline void ZeluEngine::putShaderProgram(string name, ShaderProgram& shaderProgram) {
-	shaderProgramList->insert(std::pair< string, ShaderProgram >(name, shaderProgram));
+	engine_context->shader_program_list->insert(std::pair< string, ShaderProgram >(name, shaderProgram));
 }
 
 inline ShaderProgram& ZeluEngine::getShaderProgram(string name) {
-	return shaderProgramList->find(name)->second;
-}
-
-inline map< string, ShaderProgram >& ZeluEngine::getShaderProgramList() {
-	return *shaderProgramList;
+	return engine_context->shader_program_list->find(name)->second;
 }
 
 inline Camera& ZeluEngine::getCamera() {
-	return *camera;
+	return *engine_context->camera;
 }
 
 inline ModelFactory& ZeluEngine::getModelFactory() {
-	return *modelFactory;
+	return *engine_context->modelFactory;
 }

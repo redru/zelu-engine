@@ -1,34 +1,4 @@
 ﻿  main.cpp
-  ZeluEngine.cpp
-  ShaderFactory.cpp
-  ShaderProgram.cpp
-  ModelFactory.cpp
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\modelfactory.cpp(47): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\modelfactory.cpp(59): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\modelfactory.cpp(76): warning C4244: 'inizializzazione': conversione da 'double' a 'int'. Possibile perdita di dati.
-  Model.cpp
-  MatrixUtils.cpp
-  FileUtils.cpp
-  EngineAction.cpp
-  Camera.cpp
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\camera.cpp(5): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\camera.cpp(6): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
-  Actor.cpp
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(6): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(7): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(8): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(9): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(19): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(20): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(21): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(22): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
-  Triangle.cpp
-  TexturedRenderHandler.cpp
-  RenderPhaseAction.cpp
-  OriginLines.cpp
-  GridLines.cpp
-  Generazione del codice in corso...
-c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\headers\zeluengine.h(90): warning C4715: 'ZeluEngine::getFirstUnusedActor': non tutti i percorsi di controllo restituiscono un valore
   ZeluEngine.vcxproj -> C:\Users\Luca\Documents\GitHub\zelu-engine\\ZeluEngine\build\Debug\ZeluEngine.exe
   C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_frag_struct.glsl
   C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_vert_struct.glsl

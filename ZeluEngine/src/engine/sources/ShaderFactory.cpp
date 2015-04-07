@@ -4,10 +4,10 @@ ShaderFactory::ShaderFactory() {
 
 }
 
-ShaderProgram ShaderFactory::createShader(string vertexShaderPath, string fragmentShaderPath) {
-	string vertexShaderSource{ FileUtils::readFile(vertexShaderPath) };
+void ShaderFactory::createShader(std::string vertex_shader_path, std::string fragment_shader_path, std::string shader_name) {
+	string vertexShaderSource{ FileUtils::readFile(vertex_shader_path) };
 	const char* c_vertexShaderSource = vertexShaderSource.c_str();
-	string fragmentShaderSource{ FileUtils::readFile(fragmentShaderPath) };
+	string fragmentShaderSource{ FileUtils::readFile(fragment_shader_path) };
 	const char* c_fragmentShaderSource = fragmentShaderSource.c_str();
 
 	GLenum ErrorCheckValue = glGetError();
@@ -47,7 +47,7 @@ ShaderProgram ShaderFactory::createShader(string vertexShaderPath, string fragme
 		shad.putUniformLoc(name, glGetUniformLocation(ProgramId, name));
 	}
 
-	return shad;
+	ZeluEngine::getInstance().putShaderProgram(shader_name, shad);
 }
 
 void ShaderFactory::checkCompileError(GLuint shader) {

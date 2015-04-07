@@ -86,6 +86,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\application\sources\GridLines.cpp" />
+    <ClCompile Include="src\application\sources\InputHandler.cpp" />
     <ClCompile Include="src\application\sources\OriginLines.cpp" />
     <ClCompile Include="src\application\sources\RenderPhaseAction.cpp" />
     <ClCompile Include="src\application\sources\TexturedRenderHandler.cpp" />
@@ -100,11 +101,13 @@
     <ClCompile Include="src\engine\sources\ShaderProgram.cpp" />
     <ClCompile Include="src\engine\sources\ShaderFactory.cpp" />
     <ClCompile Include="src\engine\sources\ZeluEngine.cpp" />
+    <ClCompile Include="src\engine\sources\ZeluEngineContext.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\application\headers\Constants.h" />
     <ClInclude Include="src\application\headers\GridLines.h" />
+    <ClInclude Include="src\application\headers\InputHandler.h" />
     <ClInclude Include="src\application\headers\OriginLines.h" />
     <ClInclude Include="src\application\headers\RenderPhaseAction.h" />
     <ClInclude Include="src\application\headers\TexturedRenderHandler.h" />
@@ -121,6 +124,7 @@
     <ClInclude Include="src\engine\headers\ShaderProgram.h" />
     <ClInclude Include="src\engine\headers\ShaderFactory.h" />
     <ClInclude Include="src\engine\headers\ZeluEngine.h" />
+    <ClInclude Include="src\engine\headers\ZeluEngineContext.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

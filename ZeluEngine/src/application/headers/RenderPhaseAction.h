@@ -17,7 +17,8 @@ public:
 	virtual void execute();
 
 private:
-	Triangle* tri;
+	ZeluEngine* engine;
+
 	OriginLines* originLines;
 	GridLines* gridLines;
 	Actor* spirit;

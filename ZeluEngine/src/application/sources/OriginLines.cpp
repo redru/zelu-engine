@@ -67,6 +67,7 @@ void OriginLines::draw() {
 	ZeluEngine& engine{ ZeluEngine::getInstance() };
 	ShaderProgram& prog{ ZeluEngine::getInstance().getShaderProgram(CONSTANTS::SHADER_STRUCT) };
 	glUniformMatrix4fv(prog.getUniformLoc("u_mvpMatrix"), 1, false, (GLfloat*)&engine.getCamera().getMatrix());
+	glUniformMatrix4fv(prog.getUniformLoc("u_transformationMatrix"), 1, false, (GLfloat*)&glm::mat4{ 1.0f });
 
 	glUseProgram(prog.getProgramId());
 	glDrawArrays(GL_LINES, 0, 6);
