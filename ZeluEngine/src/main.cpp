@@ -12,6 +12,9 @@
 RenderPhaseAction* renderPhase;
 ShaderProgram* shaderProgram;
 
+int last_position_x = 0;
+int last_position_y = 0;
+
 void applicationInitialize(ZeluEngine& engine);
 
 int main() {
@@ -39,15 +42,26 @@ int main() {
 				std::cout << "Window - Width: " << event.size.width << " - Height: " << event.size.height << std::endl;
 				std::cout << "Window - Aspect Ratio: " << (float)event.size.width / (float)event.size.height << std::endl;
 				engine->getCamera().setAspectRatio((float)event.size.width / (float)event.size.height);
-				engine->getCamera().updateCamera();
+			} else if (event.type == sf::Event::KeyPressed) {
+
+			} else if (event.type == sf::Event::KeyReleased) {
+
+			} else if (event.type == sf::Event::MouseWheelMoved) {
+				engine->getCamera().move(0.0f, 0.0f, (float) (event.mouseWheel.delta * 2));
+			} else if (event.type == sf::Event::MouseMoved) {
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+					engine->getCamera().rotate((float) (last_position_y - event.mouseMove.y), (float) -(last_position_x - event.mouseMove.x), 0.0f);
+				}
+					
+				last_position_x = event.mouseMove.x;
+				last_position_y = event.mouseMove.y;
 			}
 		}
 
+		engine->getCamera().updateCamera();
+
 		// Update, Collision Check and Render phases
 		engine->executePhases();
-		
-		engine->getCamera().rotate(0.0f, 1.0f, 0.0f);
-		engine->getCamera().updateCamera();
 
 		// end the current frame (internally swaps the front and back buffers)
 		window.display();
@@ -83,8 +97,8 @@ void applicationInitialize(ZeluEngine& engine) {
 	engine.getModelFactory().loadModel(CONSTANTS::SPIRIT_MODEL_NAME, CONSTANTS::MODEL_PATH + "obj_b2spirit.obj");
 
 	// Camera
-	engine.getCamera().move(0.0f, 0.0f, -24.0f);
-	engine.getCamera().rotate(30.0f, 180.0f, 0.0f);
+	engine.getCamera().move(0.0f, 0.0f, -8.0f);
+	engine.getCamera().rotate(-30.0f, 180.0f, 0.0f);
 	engine.getCamera().setAspectRatio(800.0f / 600.0f);
 	engine.getCamera().updateCamera();
 	

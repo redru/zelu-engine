@@ -1,6 +1,7 @@
 #version 400
 
 uniform mat4 u_mvpMatrix;
+uniform mat4 u_transformationMatrix;
 
 vec4 supVect;
 
@@ -10,6 +11,7 @@ out vec4 ex_Color;
 
 void main(void)
 {
-	gl_Position = u_mvpMatrix * in_Position;
+	supVect = u_transformationMatrix * in_Position;
+	gl_Position = u_mvpMatrix * supVect;
 	ex_Color = in_Color;
 }

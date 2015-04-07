@@ -19,6 +19,8 @@ void ModelFactory::wrapModel(std::string model_name, std::vector<std::string>& m
 	std::vector<std::vector<float>> normals{};
 	std::vector<float> unified_data{};
 
+	int faces_count = 0;
+
 	for (unsigned index = 0; index < model.size(); index++) {
 		std::vector<std::string> dataPart{};
 
@@ -61,6 +63,8 @@ void ModelFactory::wrapModel(std::string model_name, std::vector<std::string>& m
 			normals.push_back(tmp);
 
 		} else if (model[index].compare(0, 2, "f ") == 0) { // Check if the line is a position data
+			faces_count++;
+
 			model[index] = model[index].substr(2);
 			dataPart = FileUtils::split(model[index], ' ', dataPart); //f 28/18/10 29/19/10 30/20/10
 
@@ -95,7 +99,7 @@ void ModelFactory::wrapModel(std::string model_name, std::vector<std::string>& m
 
 	}
 
-	Model tmp_model{positions, textures, normals, unified_data};
+	Model tmp_model{ positions, textures, normals, unified_data, faces_count * 3 };
 	modelStock->insert(std::pair< std::string, Model >(model_name, tmp_model));
 
 }

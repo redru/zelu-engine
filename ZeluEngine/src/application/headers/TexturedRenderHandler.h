@@ -13,9 +13,10 @@ public:
 	TexturedRenderHandler();
 
 	virtual void setup(Model& model);
-	virtual void render(glm::mat4& transformation_matrix, int count);
+	virtual void render(glm::mat4& transformation_matrix);
 
 private:
+	int vertices_count;
 	GLuint VaoId, VboId;
 
 };

@@ -11,6 +11,6 @@ public:
 	virtual void setup(Model& model) = 0;
 
 	// Render function
-	virtual void render(glm::mat4& transformation_matrix, int count) = 0;
+	virtual void render(glm::mat4& transformation_matrix) = 0;
 
 };

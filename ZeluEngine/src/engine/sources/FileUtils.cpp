@@ -28,13 +28,7 @@ std::vector<std::string> FileUtils::readFileToVector(const std::string path) {
 		lines.push_back(tmp);
 	}
 
-	std::cout << "------- Loaded file: " + path + " -------" << std::endl;
-	
-	for (auto& s : lines) {
-		std::cout << s << std::endl;
-	}
-	
-	std::cout << "----------------------------------------------------------" << std::endl;
+	std::cout << "FileUtils - readFileToVector -> Loaded file: " + path << std::endl;
 	input.close();
 
 	return lines;

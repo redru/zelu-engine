@@ -28,6 +28,9 @@ public:
 	void setRenderHandler(RenderHandlerInterface& render_handler);
 	RenderHandlerInterface& getRenderHandler();
 
+	void setModel(Model& model);
+	Model& getModel();
+
 	void setActive(bool active);
 	bool isActive();
 
@@ -41,7 +44,7 @@ private:
 	float x_acc = 0, y_acc = 0, z_acc = 0;
 	float x_vel = 0, y_vel = 0, z_vel = 0;
 
-	bool active = false;
+	bool active;
 
 	glm::mat4* scalation_matrix;
 	glm::mat4* rotation_matrix;
@@ -92,5 +95,13 @@ inline void Actor::setRenderHandler(RenderHandlerInterface& render_handler) {
 
 inline RenderHandlerInterface& Actor::getRenderHandler() {
 	return *this->render_handler;
+}
+
+inline void Actor::setModel(Model& model) {
+	this->model = &model;
+}
+
+inline Model& Actor::getModel() {
+	return *this->model;
 }
 // ---------------------------------------------------------------------------

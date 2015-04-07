@@ -1,8 +1,7 @@
 #include "../headers/Actor.h"
 
 Actor::Actor() {
-	this->model = NULL;
-	this->render_handler = NULL;
+	active = false;
 
 	scalation_matrix = new glm::mat4{ 1 };
 	rotation_matrix = new glm::mat4{ 1 };
@@ -35,8 +34,7 @@ void Actor::renderHandlerSetup() {
 }
 
 void Actor::render() {
-	glm::mat4 tmp{ 1 };
-	render_handler->render(tmp, model->getUnifiedData().size() / 7 / 3);
+	render_handler->render(*translation_matrix);
 }
 
 void Actor::updateTransformations() {

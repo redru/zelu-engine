@@ -36,7 +36,17 @@ ShaderProgram ShaderFactory::createShader(string vertexShaderPath, string fragme
 	}
 
 	ShaderProgram shad{ VertexShaderId, FragmentShaderId, ProgramId };
-	shad.putUniformLoc("u_mvpMatrix", glGetUniformLocation(ProgramId, "u_mvpMatrix"));
+
+	GLint uniforms = 0;
+	glGetProgramiv(ProgramId, GL_ACTIVE_UNIFORMS, &uniforms);
+	for (GLint i = 0; i < uniforms; i++) {
+		int name_len = -1, num = -1;
+		GLenum type = GL_ZERO;
+		char name[100];
+		glGetActiveUniform(ProgramId, GLuint(i), sizeof(name) - 1, &name_len, &num, &type, name);
+		shad.putUniformLoc(name, glGetUniformLocation(ProgramId, name));
+	}
+
 	return shad;
 }
 

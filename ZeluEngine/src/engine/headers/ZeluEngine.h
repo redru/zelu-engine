@@ -34,6 +34,7 @@ public:
 	ShaderProgram& getShaderProgram(string name);
 	std::map< string, ShaderProgram >& getShaderProgramList();
 	std::vector< Actor >& getSceneActors();
+	Actor& getFirstUnusedActor();
 	Camera& getCamera();
 	ModelFactory& getModelFactory();
 
@@ -76,6 +77,16 @@ public:
 
 inline vector< Actor >& ZeluEngine::getSceneActors() {
 	return *sceneActors;
+}
+
+inline Actor& ZeluEngine::getFirstUnusedActor() {
+	// Look in the actors list
+	for (auto& actor : *sceneActors) {
+		// Return selected actor if inactive
+		if (!actor.isActive()) {
+			return actor;
+		}
+	}
 }
 
 inline void ZeluEngine::putShaderProgram(string name, ShaderProgram& shaderProgram) {
