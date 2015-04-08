@@ -12,5 +12,9 @@ void RenderPhaseAction::execute() {
 	originLines->draw();
 	gridLines->draw();
 
-	engine->renderSceneActors();
+	for (auto& spirit : Context::getInstance().getSpiritList()) {
+		if (spirit.isActive()) {
+			spirit.render();
+		}
+	}
 }

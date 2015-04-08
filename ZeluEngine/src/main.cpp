@@ -3,15 +3,17 @@
 #include <SFML\Window.hpp>
 #include <GL\glew.h>
 
-#include "application\headers\Constants.h"
 #include "engine\headers\ZeluEngine.h"
 #include "engine\headers\ShaderFactory.h"
-#include "engine\headers\ShaderProgram.h"
+
+#include "application\headers\Context.h"
+#include "application\headers\Constants.h"
+#include "application\headers\PreUpdatePhaseAction.h"
+#include "application\headers\UpdatePhaseAction.h"
+#include "application\headers\PostUpdatePhaseAction.h"
 #include "application\headers\RenderPhaseAction.h"
 #include "application\headers\InputHandler.h"
-
-RenderPhaseAction* renderPhase;
-ShaderProgram* shaderProgram;
+#include "application\headers\Spirit.h"
 
 void applicationInitialize(ZeluEngine& engine);
 
@@ -33,20 +35,12 @@ int main() {
 
 			if (event.type == sf::Event::Closed) {
 				running = false;
-			} else if (event.type == sf::Event::Resized) {
-				glViewport(0, 0, event.size.width, event.size.height);
-
-				// Camera aspect ratio adjustment
-				std::cout << "Window - Width: " << event.size.width << " - Height: " << event.size.height << std::endl;
-				std::cout << "Window - Aspect Ratio: " << (float)event.size.width / (float)event.size.height << std::endl;
-				engine->getCamera().setAspectRatio((float)event.size.width / (float)event.size.height);
 			}
 
 			// Handle user input events
 			InputHandler::handleInput(event);
-		}
 
-		engine->getCamera().updateCamera();
+		}
 
 		// Update, Collision Check and Render phases
 		engine->executePhases();
@@ -90,12 +84,21 @@ void applicationInitialize(ZeluEngine& engine) {
 	engine.getCamera().updateCamera();
 	
 	// Engine phases
-	renderPhase = new RenderPhaseAction{ true };
-	engine.setPhaseAction(*renderPhase, ZeluEngine::Phase::RENDER);
+	PreUpdatePhaseAction* pre_update_phase = new PreUpdatePhaseAction{ true };
+	engine.setPhaseAction(*pre_update_phase, ZeluEngine::Phase::PRE_UPDATE);
+
+	UpdatePhaseAction* update_phase = new UpdatePhaseAction{ true };
+	engine.setPhaseAction(*update_phase, ZeluEngine::Phase::UPDATE);
+
+	PostUpdatePhaseAction* post_update_phase = new PostUpdatePhaseAction{ true };
+	engine.setPhaseAction(*post_update_phase, ZeluEngine::Phase::POST_UPDATE);
+
+	RenderPhaseAction* render_phase = new RenderPhaseAction{ true };
+	engine.setPhaseAction(*render_phase, ZeluEngine::Phase::RENDER);
 
 	// Adding main character
 	TexturedRenderHandler* tmp = new TexturedRenderHandler{};
-	Actor& spirit{ engine.getFirstUnusedActor() };
+	Spirit& spirit{ Context::getInstance().getFirstUnusedSpirit() };
 	spirit.setActive(true);
 	spirit.setRenderHandler(*tmp);
 	spirit.setModel(engine.getModelFactory().getModel(CONSTANTS::SPIRIT_MODEL_NAME));

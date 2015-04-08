@@ -31,6 +31,18 @@
     <Filter Include="src\engine\resources">
       <UniqueIdentifier>{1ac1db82-ebc1-4f84-86f3-a27d2cac1d2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\application\headers\engine_phases">
+      <UniqueIdentifier>{b056ba3e-707f-4bf3-84b9-be176878b7bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\application\sources\engine_phases">
+      <UniqueIdentifier>{8db543a9-e3b3-4ba0-b5d9-c29eabe9d0d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\application\headers\scene">
+      <UniqueIdentifier>{25ecfd68-e1d3-4542-977a-550bb62d1fb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\application\sources\scene">
+      <UniqueIdentifier>{51da5fad-824f-4403-be3c-5bc19d5851f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -51,9 +63,6 @@
     <ClCompile Include="src\engine\sources\Camera.cpp">
       <Filter>src\engine\sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\application\sources\RenderPhaseAction.cpp">
-      <Filter>src\application\sources</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\sources\FileUtils.cpp">
       <Filter>src\engine\sources\utils</Filter>
     </ClCompile>
@@ -62,15 +71,6 @@
     </ClCompile>
     <ClCompile Include="src\engine\sources\ShaderProgram.cpp">
       <Filter>src\engine\sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\application\sources\Triangle.cpp">
-      <Filter>src\application\sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\application\sources\OriginLines.cpp">
-      <Filter>src\application\sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\application\sources\GridLines.cpp">
-      <Filter>src\application\sources</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\sources\ModelFactory.cpp">
       <Filter>src\engine\sources</Filter>
@@ -86,6 +86,33 @@
     </ClCompile>
     <ClCompile Include="src\application\sources\InputHandler.cpp">
       <Filter>src\application\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\Context.cpp">
+      <Filter>src\application\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\GridLines.cpp">
+      <Filter>src\application\sources\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\OriginLines.cpp">
+      <Filter>src\application\sources\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\Triangle.cpp">
+      <Filter>src\application\sources\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\RenderPhaseAction.cpp">
+      <Filter>src\application\sources\engine_phases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\PostUpdatePhaseAction.cpp">
+      <Filter>src\application\sources\engine_phases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\PreUpdatePhaseAction.cpp">
+      <Filter>src\application\sources\engine_phases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\UpdatePhaseAction.cpp">
+      <Filter>src\application\sources\engine_phases</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\Spirit.cpp">
+      <Filter>src\application\sources\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,9 +131,6 @@
     <ClInclude Include="src\engine\headers\MatrixUtils.h">
       <Filter>src\engine\headers\utils</Filter>
     </ClInclude>
-    <ClInclude Include="src\application\headers\RenderPhaseAction.h">
-      <Filter>src\application\headers</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\headers\FileUtils.h">
       <Filter>src\engine\headers\utils</Filter>
     </ClInclude>
@@ -115,15 +139,6 @@
     </ClInclude>
     <ClInclude Include="src\engine\headers\ShaderProgram.h">
       <Filter>src\engine\headers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\application\headers\Triangle.h">
-      <Filter>src\application\headers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\application\headers\OriginLines.h">
-      <Filter>src\application\headers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\application\headers\GridLines.h">
-      <Filter>src\application\headers</Filter>
     </ClInclude>
     <ClInclude Include="src\application\headers\Constants.h">
       <Filter>src\application\headers</Filter>
@@ -147,6 +162,36 @@
       <Filter>src\engine\headers</Filter>
     </ClInclude>
     <ClInclude Include="src\application\headers\InputHandler.h">
+      <Filter>src\application\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\RenderPhaseAction.h">
+      <Filter>src\application\headers\engine_phases</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\CollisionPhaseAction.h">
+      <Filter>src\application\headers\engine_phases</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\PostUpdatePhaseAction.h">
+      <Filter>src\application\headers\engine_phases</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\PreUpdatePhaseAction.h">
+      <Filter>src\application\headers\engine_phases</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\UpdatePhaseAction.h">
+      <Filter>src\application\headers\engine_phases</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\GridLines.h">
+      <Filter>src\application\headers\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\OriginLines.h">
+      <Filter>src\application\headers\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\Triangle.h">
+      <Filter>src\application\headers\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\Spirit.h">
+      <Filter>src\application\headers\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\Context.h">
       <Filter>src\application\headers</Filter>
     </ClInclude>
   </ItemGroup>

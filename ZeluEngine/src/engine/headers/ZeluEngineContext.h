@@ -3,6 +3,8 @@
 #include <vector>
 #include <map>
 
+#include <SFML\Window.hpp>
+
 #include "Actor.h"
 #include "ShaderProgram.h"
 #include "ModelFactory.h"
@@ -19,10 +21,9 @@ public:
 
 /*********** MISCELANEOUS ***************/
 
-	std::vector< Actor >* scene_actors;
-	Actor* void_actor;
-
 	std::map<string, ShaderProgram>* shader_program_list;
+	std::vector<sf::Keyboard::Key>* key_press_list;
+	std::vector<sf::Keyboard::Key>* key_release_list;
 
 /************* SINGLETON ****************/
 

@@ -4,6 +4,7 @@
 #include "../../engine/headers/ZeluEngine.h"
 #include "../../engine/headers/EngineAction.h"
 
+#include "Context.h"
 #include "TexturedRenderHandler.h"
 #include "Triangle.h"
 #include "OriginLines.h"

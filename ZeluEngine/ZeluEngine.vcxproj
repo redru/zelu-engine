@@ -85,12 +85,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\application\sources\Context.cpp" />
     <ClCompile Include="src\application\sources\GridLines.cpp" />
     <ClCompile Include="src\application\sources\InputHandler.cpp" />
     <ClCompile Include="src\application\sources\OriginLines.cpp" />
+    <ClCompile Include="src\application\sources\PostUpdatePhaseAction.cpp" />
+    <ClCompile Include="src\application\sources\PreUpdatePhaseAction.cpp" />
     <ClCompile Include="src\application\sources\RenderPhaseAction.cpp" />
+    <ClCompile Include="src\application\sources\Spirit.cpp" />
     <ClCompile Include="src\application\sources\TexturedRenderHandler.cpp" />
     <ClCompile Include="src\application\sources\Triangle.cpp" />
+    <ClCompile Include="src\application\sources\UpdatePhaseAction.cpp" />
     <ClCompile Include="src\engine\sources\Actor.cpp" />
     <ClCompile Include="src\engine\sources\Camera.cpp" />
     <ClCompile Include="src\engine\sources\EngineAction.cpp" />
@@ -105,13 +110,19 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\application\headers\CollisionPhaseAction.h" />
     <ClInclude Include="src\application\headers\Constants.h" />
+    <ClInclude Include="src\application\headers\Context.h" />
     <ClInclude Include="src\application\headers\GridLines.h" />
     <ClInclude Include="src\application\headers\InputHandler.h" />
     <ClInclude Include="src\application\headers\OriginLines.h" />
+    <ClInclude Include="src\application\headers\PostUpdatePhaseAction.h" />
+    <ClInclude Include="src\application\headers\PreUpdatePhaseAction.h" />
     <ClInclude Include="src\application\headers\RenderPhaseAction.h" />
+    <ClInclude Include="src\application\headers\Spirit.h" />
     <ClInclude Include="src\application\headers\TexturedRenderHandler.h" />
     <ClInclude Include="src\application\headers\Triangle.h" />
+    <ClInclude Include="src\application\headers\UpdatePhaseAction.h" />
     <ClInclude Include="src\engine\headers\Actor.h" />
     <ClInclude Include="src\engine\headers\Camera.h" />
     <ClInclude Include="src\engine\headers\DynamicActorInterface.h" />

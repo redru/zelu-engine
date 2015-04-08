@@ -7,10 +7,10 @@ ZeluEngineContext::ZeluEngineContext() {
 	camera = new Camera();
 	modelFactory = new ModelFactory();
 
-	scene_actors = new vector < Actor >{ 40 };
-	void_actor = new Actor{};
-
 	shader_program_list = new map < string, ShaderProgram >{};
+
+	key_press_list = new vector < sf::Keyboard::Key >{};
+	key_release_list = new vector < sf::Keyboard::Key >{};
 }
 // ------------------------------------------------------------------------------------ //
 // ------------------------------------------------------------------------------------ //
