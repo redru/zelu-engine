@@ -5,7 +5,8 @@ ZeluEngineContext* ZeluEngineContext::instance;
 // ------------------------------------------------------------------------------------ //
 ZeluEngineContext::ZeluEngineContext() {
 	camera = new Camera();
-	modelFactory = new ModelFactory();
+	model_factory = new ModelFactory();
+	//texture_factory = new TextureFactory();
 
 	shader_program_list = new map < string, ShaderProgram >{};
 

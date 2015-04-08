@@ -5,6 +5,7 @@
 
 #include <GL\glew.h>
 
+#include "TextureFactory.h"
 #include "ZeluEngineContext.h"
 #include "ModelFactory.h"
 #include "Model.h"
@@ -48,7 +49,10 @@ public:
 
 	void addKeyPressed(sf::Keyboard::Key key);
 	void addKeyReleased(sf::Keyboard::Key key);
-	void emptyKeyList();
+	void clearKeyLists();
+
+	std::vector<sf::Keyboard::Key>& getKeysPressed();
+	std::vector<sf::Keyboard::Key>& getKeysReleased();
 
 /********************************************************/
 
@@ -99,7 +103,7 @@ inline Camera& ZeluEngine::getCamera() {
 }
 
 inline ModelFactory& ZeluEngine::getModelFactory() {
-	return *engine_context->modelFactory;
+	return *engine_context->model_factory;
 }
 
 inline void ZeluEngine::addKeyPressed(sf::Keyboard::Key key) {
@@ -110,7 +114,15 @@ inline void ZeluEngine::addKeyReleased(sf::Keyboard::Key key) {
 	engine_context->key_release_list->push_back(key);
 }
 
-inline void ZeluEngine::emptyKeyList() {
+inline void ZeluEngine::clearKeyLists() {
 	engine_context->key_press_list->clear();
 	engine_context->key_release_list->clear();
+}
+
+inline std::vector<sf::Keyboard::Key>& ZeluEngine::getKeysPressed() {
+	return *engine_context->key_press_list;
+}
+
+inline std::vector<sf::Keyboard::Key>& ZeluEngine::getKeysReleased() {
+	return *engine_context->key_release_list;
 }

@@ -105,6 +105,7 @@
     <ClCompile Include="src\engine\sources\ModelFactory.cpp" />
     <ClCompile Include="src\engine\sources\ShaderProgram.cpp" />
     <ClCompile Include="src\engine\sources\ShaderFactory.cpp" />
+    <ClCompile Include="src\engine\sources\TextureFactory.cpp" />
     <ClCompile Include="src\engine\sources\ZeluEngine.cpp" />
     <ClCompile Include="src\engine\sources\ZeluEngineContext.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -134,6 +135,7 @@
     <ClInclude Include="src\engine\headers\RenderHandlerInterface.h" />
     <ClInclude Include="src\engine\headers\ShaderProgram.h" />
     <ClInclude Include="src\engine\headers\ShaderFactory.h" />
+    <ClInclude Include="src\engine\headers\TextureFactory.h" />
     <ClInclude Include="src\engine\headers\ZeluEngine.h" />
     <ClInclude Include="src\engine\headers\ZeluEngineContext.h" />
   </ItemGroup>

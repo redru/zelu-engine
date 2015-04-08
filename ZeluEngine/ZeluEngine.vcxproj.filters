@@ -43,6 +43,12 @@
     <Filter Include="src\application\sources\scene">
       <UniqueIdentifier>{51da5fad-824f-4403-be3c-5bc19d5851f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\engine\headers\factory">
+      <UniqueIdentifier>{887ac54e-13da-497e-bf6c-ceb638e07bc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\sources\factory">
+      <UniqueIdentifier>{e2a6b318-df06-417d-8040-47c4896f424b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -66,13 +72,7 @@
     <ClCompile Include="src\engine\sources\FileUtils.cpp">
       <Filter>src\engine\sources\utils</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine\sources\ShaderFactory.cpp">
-      <Filter>src\engine\sources</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\sources\ShaderProgram.cpp">
-      <Filter>src\engine\sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\sources\ModelFactory.cpp">
       <Filter>src\engine\sources</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\sources\Model.cpp">
@@ -114,6 +114,15 @@
     <ClCompile Include="src\application\sources\Spirit.cpp">
       <Filter>src\application\sources\scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine\sources\ShaderFactory.cpp">
+      <Filter>src\engine\sources\factory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\ModelFactory.cpp">
+      <Filter>src\engine\sources\factory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\TextureFactory.cpp">
+      <Filter>src\engine\sources\factory</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\headers\ZeluEngine.h">
@@ -134,9 +143,6 @@
     <ClInclude Include="src\engine\headers\FileUtils.h">
       <Filter>src\engine\headers\utils</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\headers\ShaderFactory.h">
-      <Filter>src\engine\headers</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\headers\ShaderProgram.h">
       <Filter>src\engine\headers</Filter>
     </ClInclude>
@@ -147,9 +153,6 @@
       <Filter>src\engine\headers</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\headers\RenderHandlerInterface.h">
-      <Filter>src\engine\headers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\headers\ModelFactory.h">
       <Filter>src\engine\headers</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\headers\DynamicActorInterface.h">
@@ -193,6 +196,15 @@
     </ClInclude>
     <ClInclude Include="src\application\headers\Context.h">
       <Filter>src\application\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\ModelFactory.h">
+      <Filter>src\engine\headers\factory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\ShaderFactory.h">
+      <Filter>src\engine\headers\factory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\TextureFactory.h">
+      <Filter>src\engine\headers\factory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

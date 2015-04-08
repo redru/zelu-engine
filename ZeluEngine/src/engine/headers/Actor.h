@@ -34,7 +34,7 @@ public:
 	void setActive(bool active);
 	bool isActive();
 
-private:
+protected:
 	float x_start = 0.0f, y_start = 0.0f, z_start = 0.0f;
 
 	float x_pos = 0.0f, y_pos = 0.0f, z_pos = 0.0f;

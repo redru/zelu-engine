@@ -5,6 +5,7 @@
 
 #include <SFML\Window.hpp>
 
+#include "TextureFactory.h"
 #include "Actor.h"
 #include "ShaderProgram.h"
 #include "ModelFactory.h"
@@ -17,7 +18,8 @@ public:
 /************* ENGINE *******************/
 
 	Camera* camera;
-	ModelFactory* modelFactory;
+	ModelFactory* model_factory;
+	//TextureFactory* texture_factory;
 
 /*********** MISCELANEOUS ***************/
 

@@ -1,5 +1,9 @@
 #pragma once
+#include <stdio.h>
+#include <vector>
+#include <SFML\Window.hpp>
 
+#include "../../engine/headers/ZeluEngine.h"
 #include "../../engine/headers/Actor.h"
 #include "../../engine/headers/Model.h"
 #include "../../engine/headers/RenderHandlerInterface.h"
@@ -16,6 +20,6 @@ public:
 	void move();
 
 private:
-
+	ZeluEngine* engine;
 
 };

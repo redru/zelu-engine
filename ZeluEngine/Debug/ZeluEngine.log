@@ -1,6 +1,7 @@
 ﻿  main.cpp
   ZeluEngineContext.cpp
   ZeluEngine.cpp
+  TextureFactory.cpp
   ShaderFactory.cpp
   ShaderProgram.cpp
   ModelFactory.cpp
@@ -30,9 +31,9 @@ c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.c
   RenderPhaseAction.cpp
   PreUpdatePhaseAction.cpp
   PostUpdatePhaseAction.cpp
-  OriginLines.cpp
   Generazione del codice in corso...
   Compilazione in corso...
+  OriginLines.cpp
   InputHandler.cpp
   GridLines.cpp
   Context.cpp

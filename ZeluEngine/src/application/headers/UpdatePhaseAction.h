@@ -4,6 +4,8 @@
 #include "../../engine/headers/ZeluEngine.h"
 #include "../../engine/headers/EngineAction.h"
 
+#include "Context.h"
+
 class UpdatePhaseAction : public EngineAction {
 
 public:

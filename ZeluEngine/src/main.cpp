@@ -5,6 +5,7 @@
 
 #include "engine\headers\ZeluEngine.h"
 #include "engine\headers\ShaderFactory.h"
+#include "engine\headers\TextureFactory.h"
 
 #include "application\headers\Context.h"
 #include "application\headers\Constants.h"
@@ -75,11 +76,11 @@ void applicationInitialize(ZeluEngine& engine) {
 	shaderFac.createShader(CONSTANTS::SHADER_PATH + "shader_vert_struct.glsl", CONSTANTS::SHADER_PATH + "shader_frag_struct.glsl", CONSTANTS::SHADER_STRUCT);
 
 	// Models
-	engine.getModelFactory().loadModel(CONSTANTS::SPIRIT_MODEL_NAME, CONSTANTS::MODEL_PATH + "obj_b2spirit.obj");
+	engine.getModelFactory().loadModel(CONSTANTS::SPIRIT_MODEL_NAME, CONSTANTS::MODEL_SPIRIT_PATH + "obj_b2spirit.obj");
 
 	// Camera
 	engine.getCamera().move(0.0f, 0.0f, -24.0f);
-	engine.getCamera().rotate(-30.0f, 180.0f, 0.0f);
+	engine.getCamera().rotate(30.0f, 180.0f, 0.0f);
 	engine.getCamera().setAspectRatio(800.0f / 600.0f);
 	engine.getCamera().updateCamera();
 	
@@ -103,7 +104,7 @@ void applicationInitialize(ZeluEngine& engine) {
 	spirit.setRenderHandler(*tmp);
 	spirit.setModel(engine.getModelFactory().getModel(CONSTANTS::SPIRIT_MODEL_NAME));
 	spirit.renderHandlerSetup();
-	spirit.translateToPosition(4.0f, 4.0f, 4.0f);
+	spirit.translateToPosition(0.0f, 4.0f, 0.0f);
 	spirit.updateTransformations();
 // ------------------------------------------------------------------------------------------------------
 }

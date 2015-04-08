@@ -8,5 +8,15 @@ UpdatePhaseAction::UpdatePhaseAction(bool active) {
 
 void UpdatePhaseAction::execute() {
 
+	/* Update dynamics */
+	for (auto& spirit : Context::getInstance().getSpiritList()) {
+		if (spirit.isActive()) {
+			spirit.updateDynamics();
+			spirit.move();
+		}
+	}
+
+	/* Clear user input vectors from the engine */
+	engine->clearKeyLists();
 
 }
