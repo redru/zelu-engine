@@ -6,12 +6,9 @@
 #include "application\headers\Constants.h"
 #include "engine\headers\ZeluEngine.h"
 #include "engine\headers\ShaderFactory.h"
-#include "engine\headers\ShaderProgram.h"
 #include "application\headers\RenderPhaseAction.h"
+#include "application\headers\PreUpdatePhaseAction.h"
 #include "application\headers\InputHandler.h"
-
-RenderPhaseAction* renderPhase;
-ShaderProgram* shaderProgram;
 
 void applicationInitialize(ZeluEngine& engine);
 
@@ -44,6 +41,7 @@ int main() {
 
 			// Handle user input events
 			InputHandler::handleInput(event);
+
 		}
 
 		engine->getCamera().updateCamera();
@@ -90,8 +88,11 @@ void applicationInitialize(ZeluEngine& engine) {
 	engine.getCamera().updateCamera();
 	
 	// Engine phases
-	renderPhase = new RenderPhaseAction{ true };
-	engine.setPhaseAction(*renderPhase, ZeluEngine::Phase::RENDER);
+	PreUpdatePhaseAction* pre_update_phase = new PreUpdatePhaseAction{ true };
+	engine.setPhaseAction(*pre_update_phase, ZeluEngine::Phase::PRE_UPDATE);
+
+	RenderPhaseAction* render_phase = new RenderPhaseAction{ true };
+	engine.setPhaseAction(*render_phase, ZeluEngine::Phase::RENDER);
 
 	// Adding main character
 	TexturedRenderHandler* tmp = new TexturedRenderHandler{};
