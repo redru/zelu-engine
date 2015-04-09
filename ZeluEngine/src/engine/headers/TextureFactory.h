@@ -1,7 +1,11 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
 #include <map>
+
+#include "lodepng.h"
+#include "Texture.h"
 
 class TextureFactory {
 
@@ -10,9 +14,9 @@ public:
 
 	void loadTexture(std::string name, std::string path);
 
-	std::string getTexture(std::string name);
+	Texture& getTexture(std::string name);
 
 private:
-	std::map<std::string, std::string>* texture_stock;
+	std::map<std::string, Texture>* texture_stock;
 
 };

@@ -44,7 +44,7 @@ void ModelFactory::wrapModel(std::string model_name, std::vector<std::string>& m
 			std::vector<float> tmp{};
 
 			for (unsigned i = 0; i < 2; i++) {
-				float tmpFloat = std::atof(dataPart[i].c_str());
+				float tmpFloat = (float) std::atof(dataPart[i].c_str());
 				tmp.push_back(tmpFloat);
 			}
 
@@ -56,7 +56,7 @@ void ModelFactory::wrapModel(std::string model_name, std::vector<std::string>& m
 			std::vector<float> tmp{};
 
 			for (unsigned i = 0; i < 3; i++) {
-				float tmpFloat = std::atof(dataPart[i].c_str());
+				float tmpFloat = (float) std::atof(dataPart[i].c_str());
 				tmp.push_back(tmpFloat);
 			}
 
@@ -73,7 +73,7 @@ void ModelFactory::wrapModel(std::string model_name, std::vector<std::string>& m
 				supp_data_part = FileUtils::split(dataPart[x], '/', supp_data_part);
 
 				for (unsigned i = 0; i < 3; i++) { // {28, 18, 10}
-					int tmp_int = std::atof(supp_data_part[i].c_str()) - 1;
+					int tmp_int = (int) std::atof(supp_data_part[i].c_str()) - 1;
 
 					switch (i) {
 					case 0:

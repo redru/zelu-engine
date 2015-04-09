@@ -4,7 +4,7 @@ Spirit::Spirit() : Actor{} {
 	engine = &ZeluEngine::getInstance();
 }
 
-Spirit::Spirit(Model& model, RenderHandlerInterface& render_handler, bool active) : Actor{ model, render_handler, active } {
+Spirit::Spirit(Model& model, Texture& texture, RenderHandlerInterface& render_handler, bool active) : Actor{ model, texture, render_handler, active } {
 	engine = &ZeluEngine::getInstance();
 }
 

@@ -7,6 +7,7 @@
 const int APPL_FRAMERATE = 40;
 
 const std::string SHADER_STRUCT = "shader_vert_struct";
+const std::string SHADER_TEXTURED = "shader_vert_textured";
 const std::string SHADER_PATH = "build/Debug/resources/glsl/";
 const std::string RELEASE_SHADER_PATH = "resources/glsl/";
 

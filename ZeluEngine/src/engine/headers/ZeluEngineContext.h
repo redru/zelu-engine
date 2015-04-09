@@ -19,7 +19,7 @@ public:
 
 	Camera* camera;
 	ModelFactory* model_factory;
-	//TextureFactory* texture_factory;
+	TextureFactory* texture_factory;
 
 /*********** MISCELANEOUS ***************/
 

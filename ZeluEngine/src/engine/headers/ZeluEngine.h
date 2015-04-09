@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include <map>
 
 #include <GL\glew.h>
 
@@ -26,9 +25,6 @@ public:
 	};
 
 public:
-
-/************************ ENGINE *************************/
-
 	void startup();
 	void executePhases();
 	void setPhaseAction(EngineAction& engineAction, Phase phase);
@@ -40,10 +36,12 @@ public:
 
 	/************************ SCENE **************************/
 
+	inline ModelFactory& getModelFactory() { return *engine_context->model_factory; }
+	inline TextureFactory& getTextureFactory() { return *engine_context->texture_factory; }
+
 	/*********************** CAMERA **************************/
 
-	Camera& getCamera();
-	ModelFactory& getModelFactory();
+	inline Camera& getCamera() { return *engine_context->camera; }
 
 	/************************ MISC ***************************/
 
@@ -51,10 +49,8 @@ public:
 	void addKeyReleased(sf::Keyboard::Key key);
 	void clearKeyLists();
 
-	std::vector<sf::Keyboard::Key>& getKeysPressed();
-	std::vector<sf::Keyboard::Key>& getKeysReleased();
-
-/********************************************************/
+	inline std::vector<sf::Keyboard::Key>& getKeysPressed() { return *engine_context->key_press_list; }
+	inline std::vector<sf::Keyboard::Key>& getKeysReleased() { return *engine_context->key_release_list; }
 
 private:
 	ZeluEngineContext* engine_context;
@@ -98,14 +94,6 @@ inline ShaderProgram& ZeluEngine::getShaderProgram(string name) {
 	return engine_context->shader_program_list->find(name)->second;
 }
 
-inline Camera& ZeluEngine::getCamera() {
-	return *engine_context->camera;
-}
-
-inline ModelFactory& ZeluEngine::getModelFactory() {
-	return *engine_context->model_factory;
-}
-
 inline void ZeluEngine::addKeyPressed(sf::Keyboard::Key key) {
 	engine_context->key_press_list->push_back(key);
 }
@@ -117,12 +105,4 @@ inline void ZeluEngine::addKeyReleased(sf::Keyboard::Key key) {
 inline void ZeluEngine::clearKeyLists() {
 	engine_context->key_press_list->clear();
 	engine_context->key_release_list->clear();
-}
-
-inline std::vector<sf::Keyboard::Key>& ZeluEngine::getKeysPressed() {
-	return *engine_context->key_press_list;
-}
-
-inline std::vector<sf::Keyboard::Key>& ZeluEngine::getKeysReleased() {
-	return *engine_context->key_release_list;
 }

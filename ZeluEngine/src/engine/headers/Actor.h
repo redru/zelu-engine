@@ -1,17 +1,21 @@
 #pragma once
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 #include <glm/glm.hpp>
 
 #include "RenderHandlerInterface.h"
 #include "Model.h"
+#include "Texture.h"
 
 class Actor {
 
 public:
 	Actor();
-	Actor(Model& model, RenderHandlerInterface& render_handler, bool active);
+	Actor(Model& model, Texture& texture, RenderHandlerInterface& render_handler, bool active = false);
 	~Actor();
+
+	void initialize(Model& model, Texture& texture, RenderHandlerInterface& render_handler, bool active);
 
 	// Methods for transformations -------------------------------------------
 	void scale(float x_scale_upset, float y_scale_upset, float z_scale_upset);
@@ -31,6 +35,9 @@ public:
 	void setModel(Model& model);
 	Model& getModel();
 
+	void setTexture(Texture& texture);
+	Texture& getTexture();
+
 	void setActive(bool active);
 	bool isActive();
 
@@ -47,20 +54,22 @@ protected:
 	bool active;
 
 	glm::mat4* scalation_matrix;
-	glm::mat4* rotation_matrix;
-	glm::mat4* rotation_support_matrix;
+	glm::mat4* rotation_x;
+	glm::mat4* rotation_y;
 	glm::mat4* translation_matrix;
+	glm::mat4* transform_matrix;
 
 	RenderHandlerInterface* render_handler;
 	Model* model;
+	Texture* texture;
 
 };
 
 /* INLINED METHODS */
 inline void Actor::scale(float x_scale_upset, float y_scale_upset, float z_scale_upset) {
-	this->x_sca += x_scale_upset;
-	this->y_sca += y_scale_upset;
-	this->z_sca += z_scale_upset;
+	this->x_sca = x_scale_upset;
+	this->y_sca = y_scale_upset;
+	this->z_sca = z_scale_upset;
 }
 
 inline void Actor::rotate(float x_rot_upset, float y_rot_upset, float z_rot_upset) {
@@ -104,5 +113,13 @@ inline void Actor::setModel(Model& model) {
 
 inline Model& Actor::getModel() {
 	return *this->model;
+}
+
+inline void Actor::setTexture(Texture& texture) {
+	this->texture = &texture;
+}
+
+inline Texture& Actor::getTexture() {
+	return *this->texture;
 }
 // ---------------------------------------------------------------------------

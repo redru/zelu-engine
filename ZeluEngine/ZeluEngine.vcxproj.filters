@@ -123,6 +123,12 @@
     <ClCompile Include="src\engine\sources\TextureFactory.cpp">
       <Filter>src\engine\sources\factory</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine\sources\lodepng.cpp">
+      <Filter>src\engine\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\sources\Texture.cpp">
+      <Filter>src\engine\sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\headers\ZeluEngine.h">
@@ -205,6 +211,12 @@
     </ClInclude>
     <ClInclude Include="src\engine\headers\TextureFactory.h">
       <Filter>src\engine\headers\factory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\lodepng.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\Texture.h">
+      <Filter>src\engine\headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

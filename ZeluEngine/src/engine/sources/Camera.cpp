@@ -18,13 +18,23 @@ void Camera::updateCamera() {
 		/*glm::mat4 ViewTranslate = glm::translate(glm::mat4(1.0f), glm::vec3{ x_cam, y_cam, z_cam });
 		glm::mat4 ViewRotateX = glm::rotate(ViewTranslate, y_rotation, glm::vec3{ 0.0f, 1.0f, 0.0f });
 		glm::mat4 View = glm::rotate(ViewRotateX, x_rotation, glm::vec3{ 1.0f, 0.0f, 0.0f });*/
-		glm::mat4 ViewTranslate = glm::translate(glm::mat4(1.0f), glm::vec3{ x_cam, y_cam, z_cam });
+		/*glm::mat4 ViewTranslate = glm::translate(glm::mat4(1.0f), glm::vec3{ x_cam, y_cam, z_cam });
 		glm::mat4 ViewRotateX = glm::rotate(ViewTranslate, x_rotation, glm::vec3{ 1.0f, 0.0f, 0.0f });
-		glm::mat4 View = glm::rotate(ViewRotateX, y_rotation, glm::vec3{ 0.0f, 1.0f, 0.0f });
+		glm::mat4 View = glm::rotate(ViewRotateX, y_rotation, glm::vec3{ 0.0f, 1.0f, 0.0f });*/
 		/*glm::mat4 ViewTranslate = glm::rotate(glm::mat4(1.0f), x_rotation, glm::vec3{ 1.0f, 0.0f, 0.0f });
 		glm::mat4 ViewRotateX = glm::rotate(ViewTranslate, y_rotation, glm::vec3{ 0.0f, 1.0f, 0.0f });
 		glm::mat4 View = glm::translate(ViewRotateX, glm::vec3{ x_cam, y_cam, z_cam });*/
-	
+		/*glm::mat4 translation = glm::translate(glm::mat4(1.0f), glm::vec3{ x_cam, y_cam, z_cam });
+		glm::mat4 scalation = glm::scale(glm::mat4(1.0f), glm::vec3{ 1.0f, 1.0f, 1.0f });
+		glm::mat4 rotation_x = glm::rotate(glm::mat4(1.0f), x_rotation, glm::vec3{ 1.0f, 0.0f, 0.0f });
+		glm::mat4 rotation_y = glm::rotate(rotation_x, x_rotation, glm::vec3{ 0.0f, 1.0f, 0.0f });
+		glm::mat4 View = translation * rotation_y * scalation;*/
+		glm::mat4 View = glm::lookAt(
+			glm::vec3(x_cam, y_cam, z_cam), // Camera is at (x, y, z), in World Space
+			glm::vec3(x_cam, y_cam - 2.0f, z_cam + 10.0f), // and looks at (x, y, z)
+			glm::vec3(0.0f, 1.0f, 0.0f)  // Head is up (set to 0,-1,0 to look upside-down)
+			);
+
 		*mvp_matrix = Projection * View;
 	} else {
 		*mvp_matrix = *identity_matrix;

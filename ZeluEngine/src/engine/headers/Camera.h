@@ -3,7 +3,9 @@
 #include <iostream>
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 #include <glm/glm.hpp>
+
 
 #include "../../engine/headers/MatrixUtils.h"
 
@@ -24,6 +26,7 @@ public:
 private:
 	glm::mat4* mvp_matrix;
 	const glm::mat4* identity_matrix;
+	
 
 	float fov = 45.0f;
 	float near_z = 1.0f;
