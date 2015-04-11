@@ -4,6 +4,7 @@
 #include <glm/gtx/transform.hpp>
 #include <glm/glm.hpp>
 
+#include "MatrixUtils.h"
 #include "RenderHandlerInterface.h"
 #include "Model.h"
 #include "Texture.h"
@@ -22,6 +23,9 @@ public:
 	void rotate(float x_rot_upset, float y_rot_upset, float z_rot_upset);
 	void translate(float x_pos_upset, float y_pos_upset, float z_pos_upset);
 	void translateToPosition(float x_pos, float y_pos, float z_pos);
+	void setStart(float x_start, float y_start, float z_start);
+	void setVelocity(float x_vel, float y_vel, float z_vel);
+	void setAcceleration(float x_acc, float y_acc, float z_acc);
 	void updateTransformations();
 
 	// Methods for accessing the render_handler ------------------------------
@@ -29,19 +33,29 @@ public:
 	void render();
 
 	// Getters / Setters -----------------------------------------------------
-	void setRenderHandler(RenderHandlerInterface& render_handler);
-	RenderHandlerInterface& getRenderHandler();
+	inline void setRenderHandler(RenderHandlerInterface& render_handler) { this->render_handler = &render_handler; }
+	inline RenderHandlerInterface& getRenderHandler() { return *this->render_handler; }
 
-	void setModel(Model& model);
-	Model& getModel();
+	inline void setModel(Model& model) { this->model = &model; }
+	inline Model& getModel() { return *this->model; }
 
-	void setTexture(Texture& texture);
-	Texture& getTexture();
+	inline void setTexture(Texture& texture) { this->texture = &texture; }
+	inline Texture& getTexture() { return *this->texture; }
 
-	void setActive(bool active);
-	bool isActive();
+	inline void setId(std::string id) { this->id = id; }
+	inline std::string getId() { return this->id; }
+
+	inline void setActive(bool active) { this->active = active; }
+	inline bool isActive() { return active; }
+
+	inline void setGroup(int group) { this->group = group; }
+	inline int getGroup() { return group; }
 
 protected:
+	std::string id;
+	bool active;
+	int group;
+
 	float x_start = 0.0f, y_start = 0.0f, z_start = 0.0f;
 
 	float x_pos = 0.0f, y_pos = 0.0f, z_pos = 0.0f;
@@ -50,8 +64,6 @@ protected:
 
 	float x_acc = 0.0f, y_acc = 0.0f, z_acc = 0.0f;
 	float x_vel = 0.0f, y_vel = 0.0f, z_vel = 0.0f;
-
-	bool active;
 
 	glm::mat4* scalation_matrix;
 	glm::mat4* rotation_x;
@@ -90,36 +102,20 @@ inline void Actor::translateToPosition(float x_pos, float y_pos, float z_pos) {
 	this->z_pos = z_pos;
 }
 
-/* GETTERS / SETTERS */
-inline void Actor::setActive(bool active) {
-	this->active = active;
+inline void Actor::setStart(float x_start, float y_start, float z_start) {
+	this->x_start = x_start;
+	this->y_start = y_start;
+	this->z_start = z_start;
 }
 
-inline bool Actor::isActive() {
-	return active;
+inline void Actor::setVelocity(float x_vel, float y_vel, float z_vel) {
+	this->x_vel = x_vel;
+	this->y_vel = y_vel;
+	this->z_vel = z_vel;
 }
 
-inline void Actor::setRenderHandler(RenderHandlerInterface& render_handler) {
-	this->render_handler = &render_handler;
+inline void Actor::setAcceleration(float x_acc, float y_acc, float z_acc) {
+	this->x_acc = x_acc;
+	this->y_acc = y_acc;
+	this->z_acc = z_acc;
 }
-
-inline RenderHandlerInterface& Actor::getRenderHandler() {
-	return *this->render_handler;
-}
-
-inline void Actor::setModel(Model& model) {
-	this->model = &model;
-}
-
-inline Model& Actor::getModel() {
-	return *this->model;
-}
-
-inline void Actor::setTexture(Texture& texture) {
-	this->texture = &texture;
-}
-
-inline Texture& Actor::getTexture() {
-	return *this->texture;
-}
-// ---------------------------------------------------------------------------

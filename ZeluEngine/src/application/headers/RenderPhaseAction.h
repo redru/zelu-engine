@@ -22,6 +22,5 @@ private:
 
 	OriginLines* originLines;
 	GridLines* gridLines;
-	Actor* spirit;
 
 };

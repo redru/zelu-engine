@@ -31,7 +31,7 @@ void Camera::updateCamera() {
 		glm::mat4 View = translation * rotation_y * scalation;*/
 		glm::mat4 View = glm::lookAt(
 			glm::vec3(x_cam, y_cam, z_cam), // Camera is at (x, y, z), in World Space
-			glm::vec3(x_cam, y_cam - 2.0f, z_cam + 10.0f), // and looks at (x, y, z)
+			glm::vec3(x_look, y_look, z_look), // and looks at (x, y, z)
 			glm::vec3(0.0f, 1.0f, 0.0f)  // Head is up (set to 0,-1,0 to look upside-down)
 			);
 
@@ -45,7 +45,6 @@ void Camera::move(float x_upset, float y_upset, float z_upset) {
 	x_cam += x_upset;
 	y_cam += y_upset;
 	z_cam += z_upset;
-	std::cout << "x_cam: " << x_cam << " / y_cam: " << y_cam << " / z_cam: " << z_cam << std::endl;
 }
 
 void Camera::rotate(float x_rotation_degrees, float y_rotation_degrees, float z_rotation_degrees) {

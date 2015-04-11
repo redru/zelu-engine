@@ -4,19 +4,22 @@
 
 #include "../../engine/headers/ZeluEngine.h"
 #include "../headers/Spirit.h"
+#include "../headers/EnmSpirit.h"
 
 class Context {
 
 public:
-	std::vector< Spirit >& getSpiritList();
-	Spirit& getFirstUnusedSpirit();
-	void renderSceneActors();
+	inline Spirit& getMainCharacter() { return *main_character; }
 
-public:
-	std::vector< Spirit >* spirit_list;
-	Spirit* void_actor;
+	inline vector< EnmSpirit >& Context::getSpiritList() { return *spirit_list; }
+	EnmSpirit& getFirstUnusedSpirit();
 
 private:
+	Spirit* main_character;
+
+	std::vector< EnmSpirit >* spirit_list;
+	EnmSpirit* void_actor;
+
 	ZeluEngine* engine;
 
 /*********** Singleton ***********/
@@ -37,11 +40,7 @@ public:
 /*********************************/
 };
 
-inline vector< Spirit >& Context::getSpiritList() {
-	return *spirit_list;
-}
-
-inline Spirit& Context::getFirstUnusedSpirit() {
+inline EnmSpirit& Context::getFirstUnusedSpirit() {
 	for (auto& spirit : *spirit_list) {
 		if (!spirit.isActive()) {
 			return spirit;

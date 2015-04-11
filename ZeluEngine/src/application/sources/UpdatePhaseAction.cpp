@@ -7,9 +7,13 @@ UpdatePhaseAction::UpdatePhaseAction(bool active) {
 }
 
 void UpdatePhaseAction::execute() {
+	Context& context{ Context::getInstance() };
+
+	context.getMainCharacter().updateDynamics();
+	context.getMainCharacter().move();
 
 	/* Update dynamics */
-	for (auto& spirit : Context::getInstance().getSpiritList()) {
+	for (auto& spirit : context.getSpiritList()) {
 		if (spirit.isActive()) {
 			spirit.updateDynamics();
 			spirit.move();

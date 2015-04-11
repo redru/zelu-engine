@@ -47,7 +47,7 @@ void InputHandler::handleInput(sf::Event event) {
 	} else if (event.type == sf::Event::MouseMoved) {
 
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-			engine->getCamera().rotate((float)-(last_position_y - event.mouseMove.y), (float)-(last_position_x - event.mouseMove.x), 0.0f);
+			engine->getCamera().move((float) (last_position_x - event.mouseMove.x) / 10.0f, 0.0f, (float) (last_position_y - event.mouseMove.y) / 10.0f);
 		}
 
 		last_position_x = event.mouseMove.x;

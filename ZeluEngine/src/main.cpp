@@ -16,6 +16,7 @@
 #include "application\headers\RenderPhaseAction.h"
 #include "application\headers\InputHandler.h"
 #include "application\headers\Spirit.h"
+#include "application\headers\EnmSpirit.h"
 
 void applicationInitialize(ZeluEngine& engine);
 
@@ -87,9 +88,11 @@ void applicationInitialize(ZeluEngine& engine) {
 	tex_fac.loadTexture(CONSTANTS::SPIRIT_MODEL_NAME, CONSTANTS::MODEL_SPIRIT_PATH + "tex_b2spirit.png");
 
 	// Camera
-	engine.getCamera().move(0.0f, 10.0f, -18.0f);
-	engine.getCamera().setAspectRatio(800.0f / 600.0f);
-	engine.getCamera().updateCamera();
+	Camera& camera{ engine.getCamera() };
+	camera.move(0.0f, 10.0f, -18.0f);
+	camera.moveLook(0.0f, 2.0f, -4.0f);
+	camera.setAspectRatio(800.0f / 600.0f);
+	camera.updateCamera();
 	
 	// Engine phases
 	PreUpdatePhaseAction* pre_update_phase = new PreUpdatePhaseAction{ true };
@@ -105,12 +108,39 @@ void applicationInitialize(ZeluEngine& engine) {
 	engine.setPhaseAction(*render_phase, ZeluEngine::Phase::RENDER);
 
 	// Adding main character
-	TexturedRenderHandler* tmp = new TexturedRenderHandler{};
-	Spirit& spirit{ Context::getInstance().getFirstUnusedSpirit() };
-	spirit.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp, true);
+	TexturedRenderHandler* tmp_mchar = new TexturedRenderHandler{};
+	Spirit& spirit{ Context::getInstance().getMainCharacter() };
+	spirit.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp_mchar, true);
 	spirit.renderHandlerSetup();
 	spirit.scale(0.75f, 0.75f, 0.75f);
 	spirit.translateToPosition(0.0f, 2.0f, -4.0f);
 	spirit.updateTransformations();
+
+	TexturedRenderHandler* tmp = new TexturedRenderHandler{};
+	EnmSpirit& enm_spirit{ Context::getInstance().getFirstUnusedSpirit() };
+	enm_spirit.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp, true);
+	enm_spirit.renderHandlerSetup();
+	enm_spirit.translateToPosition(0.0f, 2.0f, 120.0f);
+	enm_spirit.setStart(0.0f, 2.0f, 120.0f);
+	enm_spirit.rotate(0.0f, 180.0f, 0.0f);
+	enm_spirit.updateTransformations();
+
+	TexturedRenderHandler* tmp2 = new TexturedRenderHandler{};
+	EnmSpirit& enm_spirit2{ Context::getInstance().getFirstUnusedSpirit() };
+	enm_spirit2.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp2, true);
+	enm_spirit2.renderHandlerSetup();
+	enm_spirit2.translateToPosition(-4.0f, 2.0f, 80.0f);
+	enm_spirit2.setStart(-4.0f, 2.0f, 80.0f);
+	enm_spirit2.rotate(0.0f, 180.0f, 0.0f);
+	enm_spirit2.updateTransformations();
+
+	TexturedRenderHandler* tmp3 = new TexturedRenderHandler{};
+	EnmSpirit& enm_spirit3{ Context::getInstance().getFirstUnusedSpirit() };
+	enm_spirit3.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp3, true);
+	enm_spirit3.renderHandlerSetup();
+	enm_spirit3.translateToPosition(10.0f, 2.0f, 180.0f);
+	enm_spirit3.setStart(10.0f, 2.0f, 180.0f);
+	enm_spirit3.rotate(0.0f, 180.0f, 0.0f);
+	enm_spirit3.updateTransformations();
 // ------------------------------------------------------------------------------------------------------
 }

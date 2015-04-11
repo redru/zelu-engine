@@ -49,6 +49,12 @@
     <Filter Include="src\engine\sources\factory">
       <UniqueIdentifier>{e2a6b318-df06-417d-8040-47c4896f424b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\application\headers\scene\enemies">
+      <UniqueIdentifier>{b4b2010f-cf50-45a0-9208-012ecf7f69e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\application\sources\scene\enemies">
+      <UniqueIdentifier>{5e1c5ffc-3b5b-4585-b73b-c74df376f661}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -128,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="src\engine\sources\Texture.cpp">
       <Filter>src\engine\sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\application\sources\EnmSpirit.cpp">
+      <Filter>src\application\sources\scene\enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="src\engine\headers\Texture.h">
       <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\application\headers\EnmSpirit.h">
+      <Filter>src\application\headers\scene\enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

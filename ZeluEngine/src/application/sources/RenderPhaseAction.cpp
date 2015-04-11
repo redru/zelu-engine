@@ -12,7 +12,11 @@ void RenderPhaseAction::execute() {
 	originLines->draw();
 	gridLines->draw();
 
-	for (auto& spirit : Context::getInstance().getSpiritList()) {
+	Context& context{ Context::getInstance() };
+
+	context.getMainCharacter().render();
+
+	for (auto& spirit : context.getSpiritList()) {
 		if (spirit.isActive()) {
 			spirit.render();
 		}

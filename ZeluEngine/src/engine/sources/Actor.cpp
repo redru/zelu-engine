@@ -37,8 +37,8 @@ void Actor::render() {
 
 void Actor::updateTransformations() {
 	glm::mat4 scalation_matrix = glm::scale(glm::mat4(1.0f), glm::vec3{ x_sca, y_sca, z_sca });
-	glm::mat4 rotation_x = glm::rotate(glm::mat4(1.0f), x_rot, glm::vec3{ 1.0f, 0.0f, 0.0f });
-	glm::mat4 rotation_y = glm::rotate(rotation_x, y_rot, glm::vec3{ 0.0f, 1.0f, 0.0f });
+	glm::mat4 rotation_x = glm::rotate(glm::mat4(1.0f), (float) (x_rot * MatrixUtils::PI / 180), glm::vec3{ 1.0f, 0.0f, 0.0f });
+	glm::mat4 rotation_y = glm::rotate(rotation_x, (float)(y_rot * MatrixUtils::PI / 180), glm::vec3{ 0.0f, 1.0f, 0.0f });
 	glm::mat4 translation_matrix = glm::translate(glm::mat4(1.0f), glm::vec3{ x_pos, y_pos, z_pos });
 
 	*transform_matrix = translation_matrix * rotation_y * scalation_matrix;
