@@ -1,50 +1,43 @@
-﻿Build started 12/04/2015 19.59.47.
-     1>Project "C:\Users\MMM\Documents\GitHub\zelu-engine\ZeluEngine\ZeluEngine.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"libs\SFML-2.2\include" /I"libs\glew-1.11.0\include" /Ilibs\glm /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\application\sources\Spirit.cpp
-         Spirit.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\MMM\Documents\GitHub\zelu-engine\\ZeluEngine\build\Debug\ZeluEngine.exe" /INCREMENTAL /NOLOGO /LIBPATH:"libs\SFML-2.2\lib\Debug" /LIBPATH:"libs\glew-1.11.0\lib\Debug\Win32" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "sfml-window-d.lib" "sfml-system-d.lib" "sfml-network-d.lib" "sfml-graphics-d.lib" "sfml-audio-d.lib" glew32d.lib OpenGL32.Lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\MMM\Documents\GitHub\zelu-engine\\ZeluEngine\build\Debug\ZeluEngine.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\MMM\Documents\GitHub\zelu-engine\\ZeluEngine\build\Debug\ZeluEngine.lib" /MACHINE:X86 Debug\CollisionPhaseAction.obj
-         Debug\Context.obj
-         Debug\EnmSpirit.obj
-         Debug\GridLines.obj
-         Debug\InputHandler.obj
-         Debug\OriginLines.obj
-         Debug\PostUpdatePhaseAction.obj
-         Debug\PreUpdatePhaseAction.obj
-         Debug\RenderPhaseAction.obj
-         Debug\Spirit.obj
-         Debug\TexturedRenderHandler.obj
-         Debug\Triangle.obj
-         Debug\UpdatePhaseAction.obj
-         Debug\Actor.obj
-         Debug\Camera.obj
-         Debug\EngineAction.obj
-         Debug\FileUtils.obj
-         Debug\lodepng.obj
-         Debug\MatrixUtils.obj
-         Debug\Model.obj
-         Debug\ModelFactory.obj
-         Debug\ShaderProgram.obj
-         Debug\ShaderFactory.obj
-         Debug\Texture.obj
-         Debug\TextureFactory.obj
-         Debug\ZeluEngine.obj
-         Debug\ZeluEngineContext.obj
-         Debug\main.obj
-         ZeluEngine.vcxproj -> C:\Users\MMM\Documents\GitHub\zelu-engine\\ZeluEngine\build\Debug\ZeluEngine.exe
-       PostBuildEvent:
-         xcopy "C:\Users\MMM\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources" "C:\Users\MMM\Documents\GitHub\zelu-engine\ZeluEngine\build\Debug\\resources" /e /y /i /r
-         :VCEnd
-         C:\Users\MMM\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_frag_struct.glsl
-         C:\Users\MMM\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_frag_textured.glsl
-         C:\Users\MMM\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_vert_struct.glsl
-         C:\Users\MMM\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_vert_textured.glsl
-         C:\Users\MMM\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\models\obj_b2spirit.obj
-         C:\Users\MMM\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\models\tex_b2spirit.png
-         6 File copiati
-     1>Done Building Project "C:\Users\MMM\Documents\GitHub\zelu-engine\ZeluEngine\ZeluEngine.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.60
+﻿  main.cpp
+  ZeluEngineContext.cpp
+  ZeluEngine.cpp
+  TextureFactory.cpp
+  Texture.cpp
+  ShaderFactory.cpp
+  ShaderProgram.cpp
+  ModelFactory.cpp
+  Model.cpp
+  MatrixUtils.cpp
+  lodepng.cpp
+  FileUtils.cpp
+  EngineAction.cpp
+  Camera.cpp
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\camera.cpp(5): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\camera.cpp(6): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+  Actor.cpp
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(6): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(15): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+  UpdatePhaseAction.cpp
+  Triangle.cpp
+  TexturedRenderHandler.cpp
+  Spirit.cpp
+  RenderPhaseAction.cpp
+  Generazione del codice in corso...
+  Compilazione in corso...
+  PreUpdatePhaseAction.cpp
+  PostUpdatePhaseAction.cpp
+  OriginLines.cpp
+  InputHandler.cpp
+  GridLines.cpp
+  EnmSpirit.cpp
+  Context.cpp
+  CollisionPhaseAction.cpp
+  Generazione del codice in corso...
+  ZeluEngine.vcxproj -> C:\Users\Luca\Documents\GitHub\zelu-engine\\ZeluEngine\build\Debug\ZeluEngine.exe
+  C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_frag_struct.glsl
+  C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_frag_textured.glsl
+  C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_vert_struct.glsl
+  C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_vert_textured.glsl
+  C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\models\obj_b2spirit.obj
+  C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\models\tex_b2spirit.png
+  6 archivo(s) copiado(s)

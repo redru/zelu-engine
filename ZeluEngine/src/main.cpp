@@ -102,14 +102,14 @@ void applicationInitialize(ZeluEngine& engine) {
 	UpdatePhaseAction* update_phase = new UpdatePhaseAction{ true };
 	engine.setPhaseAction(*update_phase, ZeluEngine::Phase::UPDATE);
 
+	CollisionPhaseAction* collision_phase = new CollisionPhaseAction{ true };
+	//engine.setPhaseAction(*collision_phase, ZeluEngine::Phase::COLLISION);
+
 	PostUpdatePhaseAction* post_update_phase = new PostUpdatePhaseAction{ true };
 	engine.setPhaseAction(*post_update_phase, ZeluEngine::Phase::POST_UPDATE);
 
 	RenderPhaseAction* render_phase = new RenderPhaseAction{ true };
-	engine.setPhaseAction(*render_phase, ZeluEngine::Phase::RENDER);
-
-	CollisionPhaseAction* collision_phase = new CollisionPhaseAction{ true };
-	engine.setPhaseAction(*collision_phase, ZeluEngine::Phase::COLLISION);
+	engine.setPhaseAction(*render_phase, ZeluEngine::Phase::RENDER);	
 
 	// Adding main character
 	TexturedRenderHandler* tmp_mchar = new TexturedRenderHandler{};
