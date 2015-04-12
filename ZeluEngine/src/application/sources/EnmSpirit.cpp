@@ -22,3 +22,26 @@ void EnmSpirit::move() {
 
 	updateTransformations();
 }
+
+bool EnmSpirit::checkCollision(CollisionActorInterface& actor, std::vector<float>& collision_info_sec) {
+	std::vector<float>& collision_info{ this->getCollisionInfo() };
+
+	if (
+		(collision_info[ENGINE_CONSTANTS::MIN_X] >= collision_info_sec[ENGINE_CONSTANTS::MIN_X] && collision_info[ENGINE_CONSTANTS::MIN_X] <= collision_info_sec[ENGINE_CONSTANTS::MAX_X] ||
+		collision_info[ENGINE_CONSTANTS::MAX_X] >= collision_info_sec[ENGINE_CONSTANTS::MIN_X] && collision_info[ENGINE_CONSTANTS::MAX_X] <= collision_info_sec[ENGINE_CONSTANTS::MAX_X]) &&
+		(collision_info[ENGINE_CONSTANTS::MIN_Y] >= collision_info_sec[ENGINE_CONSTANTS::MIN_Y] && collision_info[ENGINE_CONSTANTS::MIN_Y] <= collision_info_sec[ENGINE_CONSTANTS::MAX_Y] ||
+		collision_info[ENGINE_CONSTANTS::MAX_Y] >= collision_info_sec[ENGINE_CONSTANTS::MIN_Y] && collision_info[ENGINE_CONSTANTS::MAX_Y] <= collision_info_sec[ENGINE_CONSTANTS::MAX_Y]) &&
+		(collision_info[ENGINE_CONSTANTS::MIN_Z] >= collision_info_sec[ENGINE_CONSTANTS::MIN_Z] && collision_info[ENGINE_CONSTANTS::MIN_Z] <= collision_info_sec[ENGINE_CONSTANTS::MAX_Z] ||
+		collision_info[ENGINE_CONSTANTS::MAX_Z] >= collision_info_sec[ENGINE_CONSTANTS::MIN_Z] && collision_info[ENGINE_CONSTANTS::MAX_Z] <= collision_info_sec[ENGINE_CONSTANTS::MAX_Z])
+		) {
+		onCollision(actor); // Execute onCollision each object, passing the other as argument
+		actor.onCollision(*this);
+		return true;
+	}
+
+	return false;
+}
+
+void EnmSpirit::onCollision(CollisionActorInterface& actor) {
+	std::cout << "Collision" << std::endl;
+}

@@ -85,6 +85,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\application\sources\CollisionPhaseAction.cpp" />
     <ClCompile Include="src\application\sources\Context.cpp" />
     <ClCompile Include="src\application\sources\EnmSpirit.cpp" />
     <ClCompile Include="src\application\sources\GridLines.cpp" />

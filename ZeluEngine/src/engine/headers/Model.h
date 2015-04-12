@@ -13,8 +13,9 @@ public:
 		std::vector<float>& collision_info,
 		int vertices_count);
 
-	inline std::vector<float>& getUnifiedData() { return *unified_data; }
-	inline int getVerticesCount() { return vertices_count; }
+	inline std::vector<float>& getUnifiedData() { return *unified_data; };
+	inline int getVerticesCount() { return vertices_count; };
+	inline std::vector<float>& getCollisionInfo() { return *collision_info; };
 
 private:
 	std::vector<std::vector<float>>* positions;

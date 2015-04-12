@@ -141,6 +141,9 @@
     <ClCompile Include="src\application\sources\EnmSpirit.cpp">
       <Filter>src\application\sources\scene\enemies</Filter>
     </ClCompile>
+    <ClCompile Include="src\application\sources\CollisionPhaseAction.cpp">
+      <Filter>src\application\sources\engine_phases</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\headers\ZeluEngine.h">

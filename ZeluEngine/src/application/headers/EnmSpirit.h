@@ -4,13 +4,15 @@
 #include <SFML\Window.hpp>
 
 #include "../../engine/headers/ZeluEngine.h"
+#include "../../engine/headers/EngineConsts.h"
 #include "../../engine/headers/Actor.h"
 #include "../../engine/headers/Model.h"
 #include "../../engine/headers/Texture.h"
 #include "../../engine/headers/RenderHandlerInterface.h"
 #include "../../engine/headers/DynamicActorInterface.h"
+#include "../../engine/headers/CollisionActorInterface.h"
 
-class EnmSpirit : public Actor, public DynamicActorInterface {
+class EnmSpirit : public Actor, public DynamicActorInterface, public CollisionActorInterface {
 
 public:
 	EnmSpirit();
@@ -19,6 +21,10 @@ public:
 	/* DynamicActorInterface methods declaration */
 	void updateDynamics();
 	void move();
+
+	/* CollisionActorInterface methods declaration */
+	bool checkCollision(CollisionActorInterface& actor, std::vector<float>& collision_info_sec);
+	void onCollision(CollisionActorInterface& actor);
 
 private:
 	ZeluEngine* engine;

@@ -12,6 +12,7 @@
 #include "application\headers\Constants.h"
 #include "application\headers\PreUpdatePhaseAction.h"
 #include "application\headers\UpdatePhaseAction.h"
+#include "application\headers\CollisionPhaseAction.h"
 #include "application\headers\PostUpdatePhaseAction.h"
 #include "application\headers\RenderPhaseAction.h"
 #include "application\headers\InputHandler.h"
@@ -106,6 +107,9 @@ void applicationInitialize(ZeluEngine& engine) {
 
 	RenderPhaseAction* render_phase = new RenderPhaseAction{ true };
 	engine.setPhaseAction(*render_phase, ZeluEngine::Phase::RENDER);
+
+	CollisionPhaseAction* collision_phase = new CollisionPhaseAction{ true };
+	engine.setPhaseAction(*collision_phase, ZeluEngine::Phase::COLLISION);
 
 	// Adding main character
 	TexturedRenderHandler* tmp_mchar = new TexturedRenderHandler{};

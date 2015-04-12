@@ -28,28 +28,31 @@ public:
 	void setAcceleration(float x_acc, float y_acc, float z_acc);
 	void updateTransformations();
 
+	// Collision section
+	inline std::vector<float>& getCollisionInfo() { return *collision_info; };
+
 	// Methods for accessing the render_handler ------------------------------
 	void renderHandlerSetup();
 	void render();
 
 	// Getters / Setters -----------------------------------------------------
-	inline void setRenderHandler(RenderHandlerInterface& render_handler) { this->render_handler = &render_handler; }
-	inline RenderHandlerInterface& getRenderHandler() { return *this->render_handler; }
+	inline void setRenderHandler(RenderHandlerInterface& render_handler) { this->render_handler = &render_handler; };
+	inline RenderHandlerInterface& getRenderHandler() { return *this->render_handler; };
 
-	inline void setModel(Model& model) { this->model = &model; }
-	inline Model& getModel() { return *this->model; }
+	inline void setModel(Model& model) { this->model = &model; };
+	inline Model& getModel() { return *this->model; };
 
-	inline void setTexture(Texture& texture) { this->texture = &texture; }
-	inline Texture& getTexture() { return *this->texture; }
+	inline void setTexture(Texture& texture) { this->texture = &texture; };
+	inline Texture& getTexture() { return *this->texture; };
 
-	inline void setId(std::string id) { this->id = id; }
-	inline std::string getId() { return this->id; }
+	inline void setId(std::string id) { this->id = id; };
+	inline std::string getId() { return this->id; };
 
-	inline void setActive(bool active) { this->active = active; }
-	inline bool isActive() { return active; }
+	inline void setActive(bool active) { this->active = active; };
+	inline bool isActive() { return active; };
 
-	inline void setGroup(int group) { this->group = group; }
-	inline int getGroup() { return group; }
+	inline void setGroup(int group) { this->group = group; };
+	inline int getGroup() { return group; };
 
 protected:
 	std::string id;
@@ -64,6 +67,8 @@ protected:
 
 	float x_acc = 0.0f, y_acc = 0.0f, z_acc = 0.0f;
 	float x_vel = 0.0f, y_vel = 0.0f, z_vel = 0.0f;
+
+	std::vector<float>* collision_info;
 
 	glm::mat4* scalation_matrix;
 	glm::mat4* rotation_x;
@@ -94,12 +99,27 @@ inline void Actor::translate(float x_pos_upset, float y_pos_upset, float z_pos_u
 	this->x_pos += x_pos_upset;
 	this->y_pos += y_pos_upset;
 	this->z_pos += z_pos_upset;
+
+	collision_info->at(0) += x_pos_upset;
+	collision_info->at(1) += x_pos_upset;
+	collision_info->at(2) += y_pos_upset;
+	collision_info->at(3) += y_pos_upset;
+	collision_info->at(4) += z_pos_upset;
+	collision_info->at(5) += z_pos_upset;
 }
 
 inline void Actor::translateToPosition(float x_pos, float y_pos, float z_pos) {
 	this->x_pos = x_pos;
 	this->y_pos = y_pos;
 	this->z_pos = z_pos;
+
+	collision_info = new std::vector<float> (model->getCollisionInfo());
+	collision_info->at(0) += x_pos;
+	collision_info->at(1) += x_pos;
+	collision_info->at(2) += y_pos;
+	collision_info->at(3) += y_pos;
+	collision_info->at(4) += z_pos;
+	collision_info->at(5) += z_pos;
 }
 
 inline void Actor::setStart(float x_start, float y_start, float z_start) {

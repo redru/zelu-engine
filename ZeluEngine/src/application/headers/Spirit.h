@@ -4,6 +4,7 @@
 #include <SFML\Window.hpp>
 
 #include "../../engine/headers/ZeluEngine.h"
+#include "../../engine/headers/EngineConsts.h"
 #include "../../engine/headers/Actor.h"
 #include "../../engine/headers/Model.h"
 #include "../../engine/headers/Texture.h"
@@ -22,8 +23,7 @@ public:
 	void move();
 
 	/* CollisionActorInterface methods declaration */
-	bool checkCollision(CollisionActorInterface& actor);
-
+	bool checkCollision(CollisionActorInterface& actor, std::vector<float>& collision_info_sec);
 	void onCollision(CollisionActorInterface& actor);
 
 private:

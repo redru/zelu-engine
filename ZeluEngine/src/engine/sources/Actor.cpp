@@ -3,7 +3,8 @@
 Actor::Actor() {
 	active = false;
 
-	transform_matrix = new glm::mat4{ 1 };
+	transform_matrix = new glm::mat4 { 1 };
+	collision_info = new std::vector < float > { 6 };
 
 	std::cout << "Actor - Creation complete (NULL initializazion)." << std::endl;
 }
@@ -25,6 +26,8 @@ void Actor::initialize(Model& model, Texture& texture, RenderHandlerInterface& r
 	this->texture = &texture;
 	this->render_handler = &render_handler;
 	this->active = active;
+
+	collision_info = new std::vector<float> (model.getCollisionInfo());
 }
 
 void Actor::renderHandlerSetup() {

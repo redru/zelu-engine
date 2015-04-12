@@ -61,23 +61,25 @@ void Spirit::move() {
 	updateTransformations();
 }
 
-bool Spirit::checkCollision(CollisionActorInterface& actor) {
-	return true;
+bool Spirit::checkCollision(CollisionActorInterface& actor, std::vector<float>& collision_info_sec) {
+	std::vector<float>& col_info{ *collision_info };
+
+	if (
+		(col_info[ENGINE_CONSTANTS::MIN_X] >= collision_info_sec[ENGINE_CONSTANTS::MIN_X] && col_info[ENGINE_CONSTANTS::MIN_X] <= collision_info_sec[ENGINE_CONSTANTS::MAX_X] ||
+		col_info[ENGINE_CONSTANTS::MAX_X] >= collision_info_sec[ENGINE_CONSTANTS::MIN_X] && col_info[ENGINE_CONSTANTS::MAX_X] <= collision_info_sec[ENGINE_CONSTANTS::MAX_X]) &&
+		(col_info[ENGINE_CONSTANTS::MIN_Y] >= collision_info_sec[ENGINE_CONSTANTS::MIN_Y] && col_info[ENGINE_CONSTANTS::MIN_Y] <= collision_info_sec[ENGINE_CONSTANTS::MAX_Y] ||
+		col_info[ENGINE_CONSTANTS::MAX_Y] >= collision_info_sec[ENGINE_CONSTANTS::MIN_Y] && col_info[ENGINE_CONSTANTS::MAX_Y] <= collision_info_sec[ENGINE_CONSTANTS::MAX_Y]) &&
+		(col_info[ENGINE_CONSTANTS::MIN_Z] >= collision_info_sec[ENGINE_CONSTANTS::MIN_Z] && col_info[ENGINE_CONSTANTS::MIN_Z] <= collision_info_sec[ENGINE_CONSTANTS::MAX_Z] ||
+		col_info[ENGINE_CONSTANTS::MAX_Z] >= collision_info_sec[ENGINE_CONSTANTS::MIN_Z] && col_info[ENGINE_CONSTANTS::MAX_Z] <= collision_info_sec[ENGINE_CONSTANTS::MAX_Z])
+		) {
+			onCollision(actor); // Execute onCollision each object, passing the other as argument
+			actor.onCollision(*this);
+		return true;
+	}
+
+	return false;
 }
 
 void Spirit::onCollision(CollisionActorInterface& actor) {
-	//if (
-	//	(super.collisionInfo[MIN_X] >= actor.collisionInfo[MIN_X] && super.collisionInfo[MIN_X] <= actor.collisionInfo[MAX_X] ||
-	//	super.collisionInfo[MAX_X] >= actor.collisionInfo[MIN_X] && super.collisionInfo[MAX_X] <= actor.collisionInfo[MAX_X]) &&
-	//	(super.collisionInfo[MIN_Y] >= actor.collisionInfo[MIN_Y] && super.collisionInfo[MIN_Y] <= actor.collisionInfo[MAX_Y] ||
-	//	super.collisionInfo[MAX_Y] >= actor.collisionInfo[MIN_Y] && super.collisionInfo[MAX_Y] <= actor.collisionInfo[MAX_Y]) &&
-	//	(super.collisionInfo[MIN_Z] >= actor.collisionInfo[MIN_Z] && super.collisionInfo[MIN_Z] <= actor.collisionInfo[MAX_Z] ||
-	//	super.collisionInfo[MAX_Z] >= actor.collisionInfo[MIN_Z] && super.collisionInfo[MAX_Z] <= actor.collisionInfo[MAX_Z])
-	//	) {
-	//	this.onCollision(actor); // Execute onCollision each object, passing the other as argument
-	//	actor.onCollision(this);
-	//	return true;
-	//}
-
-	//return false;
+	std::cout << "Collision" << std::endl;
 }
