@@ -112,7 +112,7 @@ void applicationInitialize(ZeluEngine& engine) {
 	Spirit& spirit{ Context::getInstance().getMainCharacter() };
 	spirit.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp_mchar, "CHAR", true);
 	spirit.renderHandlerSetup();
-	spirit.scale(0.75f, 0.75f, 0.75f);
+	spirit.scale(0.45f, 0.45f, 0.45f);
 	spirit.translateToPosition(0.0f, 2.0f, -4.0f);
 	spirit.updateTransformations();
 

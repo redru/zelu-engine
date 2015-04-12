@@ -10,7 +10,7 @@ RenderPhaseAction::RenderPhaseAction(bool active) {
 
 void RenderPhaseAction::execute() {
 	originLines->draw();
-	gridLines->draw();
+	//gridLines->draw();
 
 	Context& context{ Context::getInstance() };
 

@@ -3,11 +3,11 @@
 OriginLines::OriginLines() {
 	vertexData = new vector < float >{
 		  0.0f,   0.0f,   0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-		100.0f,   0.0f,   0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+		10000.0f,   0.0f,   0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
 		  0.0f,   0.0f,   0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f,
-		  0.0f, 100.0f,   0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f,
+		  0.0f, 10000.0f,   0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f,
 		  0.0f,   0.0f,   0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
-		  0.0f,   0.0f, 100.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f
+		  0.0f,   0.0f, 10000.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f
 	};
 
 	openglMeshSetup();
@@ -62,14 +62,16 @@ void OriginLines::openglMeshSetup() {
 }
 
 void OriginLines::draw() {
-	glBindVertexArray(VaoId);
 
 	ZeluEngine& engine{ ZeluEngine::getInstance() };
 	ShaderProgram& prog{ ZeluEngine::getInstance().getShaderProgram(CONSTANTS::SHADER_STRUCT) };
+	glUseProgram(prog.getProgramId());
+
 	glUniformMatrix4fv(prog.getUniformLoc("u_mvpMatrix"), 1, false, (GLfloat*)&engine.getCamera().getMatrix());
 	glUniformMatrix4fv(prog.getUniformLoc("u_transformationMatrix"), 1, false, (GLfloat*)&glm::mat4{ 1.0f });
 
-	glUseProgram(prog.getProgramId());
+	glBindVertexArray(VaoId);
+	
 	glDrawArrays(GL_LINES, 0, 6);
 
 	glBindVertexArray(0);
