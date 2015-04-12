@@ -1,4 +1,38 @@
-﻿  InputHandler.cpp
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'c:\users\luca\documents\github\zelu-engine\zeluengine\debug\shaderprogram.obj' because it is being used by another process.
+  main.cpp
+  ZeluEngineContext.cpp
+  ZeluEngine.cpp
+  TextureFactory.cpp
+  Texture.cpp
+  ShaderFactory.cpp
+  ShaderProgram.cpp
+  ModelFactory.cpp
+  Model.cpp
+  MatrixUtils.cpp
+  lodepng.cpp
+  FileUtils.cpp
+  EngineAction.cpp
+  Camera.cpp
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\camera.cpp(5): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\camera.cpp(6): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+  Actor.cpp
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(6): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+c:\users\luca\documents\github\zelu-engine\zeluengine\src\engine\sources\actor.cpp(14): warning C4316: 'glm::tmat4x4<float,0>': l'oggetto allocato nell'heap può non essere allineato 16
+  UpdatePhaseAction.cpp
+  Triangle.cpp
+  TexturedRenderHandler.cpp
+  Spirit.cpp
+  RenderPhaseAction.cpp
+  Generazione del codice in corso...
+  Compilazione in corso...
+  PreUpdatePhaseAction.cpp
+  PostUpdatePhaseAction.cpp
+  OriginLines.cpp
+  InputHandler.cpp
+  GridLines.cpp
+  EnmSpirit.cpp
+  Context.cpp
+  Generazione del codice in corso...
   ZeluEngine.vcxproj -> C:\Users\Luca\Documents\GitHub\zelu-engine\\ZeluEngine\build\Debug\ZeluEngine.exe
   C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_frag_struct.glsl
   C:\Users\Luca\Documents\GitHub\zelu-engine\ZeluEngine\src\application\resources\glsl\shader_frag_textured.glsl

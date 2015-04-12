@@ -19,6 +19,8 @@ void ModelFactory::wrapModel(std::string model_name, std::vector<std::string>& m
 	std::vector<std::vector<float>> normals{};
 	std::vector<float> unified_data{};
 
+	std::vector<float> collision_info(6);
+
 	int faces_count = 0;
 
 	for (unsigned index = 0; index < model.size(); index++) {
@@ -30,10 +32,10 @@ void ModelFactory::wrapModel(std::string model_name, std::vector<std::string>& m
 			std::vector<float> tmp{};
 
 			for (unsigned i = 0; i < 3; i++) {
-				float tmpFloat = std::stof(dataPart[i].c_str());
-				tmp.push_back(tmpFloat);
+				float tmp_float = std::stof(dataPart[i].c_str());
+				tmp.push_back(tmp_float);
 
-				//this.evaluateMinMax(collisionInfo, tmp, i); // Set into the collision info the min and max values for this coordinate
+				evaluateMinMax(collision_info, tmp_float, i); // Set into the collision info the min and max values for this coordinate
 			}
 
 			positions.push_back(tmp);
@@ -99,11 +101,42 @@ void ModelFactory::wrapModel(std::string model_name, std::vector<std::string>& m
 
 	}
 
-	Model tmp_model{ positions, textures, normals, unified_data, faces_count * 3 };
+	Model tmp_model{ positions, textures, normals, unified_data, collision_info, faces_count * 3 };
 	modelStock->insert(std::pair< std::string, Model >(model_name, tmp_model));
 
 }
 
-Model& ModelFactory::getModel(std::string name) {
-	return modelStock->find(name)->second;
+void ModelFactory::evaluateMinMax(std::vector<float>& target, float value, int coord_type) {
+	// Coord type: 0 equals X, 1 equals Y, 2 equals Z
+	switch (coord_type) {
+	case 0:
+		if (value < target[0]) {
+			target[0] = value;
+		}
+		else if (value > target[1]) {
+			target[1] = value;
+		}
+		break;
+
+	case 1:
+		if (value < target[2]) {
+			target[2] = value;
+		}
+		else if (value > target[3]) {
+			target[3] = value;
+		}
+		break;
+
+	case 2:
+		if (value < target[4]) {
+			target[4] = value;
+		}
+		else if (value > target[5]) {
+			target[5] = value;
+		}
+		break;
+
+	default:
+		break;
+	}
 }

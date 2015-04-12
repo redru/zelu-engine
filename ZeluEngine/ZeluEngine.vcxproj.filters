@@ -55,6 +55,9 @@
     <Filter Include="src\application\sources\scene\enemies">
       <UniqueIdentifier>{5e1c5ffc-3b5b-4585-b73b-c74df376f661}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\engine\headers\interfaces">
+      <UniqueIdentifier>{539b3c13-084f-4a27-a5a1-dc5359ba1c4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -167,12 +170,6 @@
     <ClInclude Include="src\engine\headers\Model.h">
       <Filter>src\engine\headers</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\headers\RenderHandlerInterface.h">
-      <Filter>src\engine\headers</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\headers\DynamicActorInterface.h">
-      <Filter>src\engine\headers</Filter>
-    </ClInclude>
     <ClInclude Include="src\application\headers\TexturedRenderHandler.h">
       <Filter>src\application\headers</Filter>
     </ClInclude>
@@ -229,6 +226,18 @@
     </ClInclude>
     <ClInclude Include="src\application\headers\EnmSpirit.h">
       <Filter>src\application\headers\scene\enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\EngineConsts.h">
+      <Filter>src\engine\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\CollisionActorInterface.h">
+      <Filter>src\engine\headers\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\DynamicActorInterface.h">
+      <Filter>src\engine\headers\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\headers\RenderHandlerInterface.h">
+      <Filter>src\engine\headers\interfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

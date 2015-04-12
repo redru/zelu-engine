@@ -4,7 +4,7 @@ EnmSpirit::EnmSpirit() : Actor{} {
 	engine = &ZeluEngine::getInstance();
 }
 
-EnmSpirit::EnmSpirit(Model& model, Texture& texture, RenderHandlerInterface& render_handler, bool active) : Actor{ model, texture, render_handler, active } {
+EnmSpirit::EnmSpirit(Model& model, Texture& texture, RenderHandlerInterface& render_handler, std::string id, bool active) : Actor{ model, texture, render_handler, id, active } {
 	engine = &ZeluEngine::getInstance();
 }
 

@@ -14,7 +14,7 @@ class EnmSpirit : public Actor, public DynamicActorInterface {
 
 public:
 	EnmSpirit();
-	EnmSpirit(Model& model, Texture& texture, RenderHandlerInterface& render_handler, bool active);
+	EnmSpirit(Model& model, Texture& texture, RenderHandlerInterface& render_handler, std::string id, bool active);
 
 	/* DynamicActorInterface methods declaration */
 	void updateDynamics();

@@ -13,10 +13,10 @@ class Actor {
 
 public:
 	Actor();
-	Actor(Model& model, Texture& texture, RenderHandlerInterface& render_handler, bool active = false);
+	Actor(Model& model, Texture& texture, RenderHandlerInterface& render_handler, std::string id, bool active = false);
 	~Actor();
 
-	void initialize(Model& model, Texture& texture, RenderHandlerInterface& render_handler, bool active);
+	void initialize(Model& model, Texture& texture, RenderHandlerInterface& render_handler, std::string id, bool active);
 
 	// Methods for transformations -------------------------------------------
 	void scale(float x_scale_upset, float y_scale_upset, float z_scale_upset);

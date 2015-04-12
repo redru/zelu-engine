@@ -130,8 +130,10 @@
     <ClInclude Include="src\application\headers\UpdatePhaseAction.h" />
     <ClInclude Include="src\engine\headers\Actor.h" />
     <ClInclude Include="src\engine\headers\Camera.h" />
+    <ClInclude Include="src\engine\headers\CollisionActorInterface.h" />
     <ClInclude Include="src\engine\headers\DynamicActorInterface.h" />
     <ClInclude Include="src\engine\headers\EngineAction.h" />
+    <ClInclude Include="src\engine\headers\EngineConsts.h" />
     <ClInclude Include="src\engine\headers\FileUtils.h" />
     <ClInclude Include="src\engine\headers\lodepng.h" />
     <ClInclude Include="src\engine\headers\MatrixUtils.h" />

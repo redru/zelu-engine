@@ -53,8 +53,9 @@ void ShaderFactory::createShader(std::string vertex_shader_path, std::string fra
 void ShaderFactory::checkCompileError(GLuint shader) {
 	GLint isCompiled = 0;
 	glGetShaderiv(shader, GL_COMPILE_STATUS, &isCompiled);
-	if (isCompiled == GL_FALSE)
-	{
+
+	if (isCompiled == GL_FALSE) {
+
 		GLint maxLength = 0;
 		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
 
@@ -67,5 +68,7 @@ void ShaderFactory::checkCompileError(GLuint shader) {
 		// Exit with failure.
 		glDeleteShader(shader); // Don't leak the shader.
 		exit(-1);
+
 	}
+
 }

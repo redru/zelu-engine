@@ -8,8 +8,8 @@ Actor::Actor() {
 	std::cout << "Actor - Creation complete (NULL initializazion)." << std::endl;
 }
 
-Actor::Actor(Model& model, Texture& texture, RenderHandlerInterface& render_handler, bool active) {
-	initialize(model, texture, render_handler, active);
+Actor::Actor(Model& model, Texture& texture, RenderHandlerInterface& render_handler, std::string id, bool active) {
+	initialize(model, texture, render_handler, id, active);
 
 	transform_matrix = new glm::mat4{ 1 };
 
@@ -20,7 +20,7 @@ Actor::~Actor() {
 
 }
 
-void Actor::initialize(Model& model, Texture& texture, RenderHandlerInterface& render_handler, bool active) {
+void Actor::initialize(Model& model, Texture& texture, RenderHandlerInterface& render_handler, std::string id, bool active) {
 	this->model = &model;
 	this->texture = &texture;
 	this->render_handler = &render_handler;

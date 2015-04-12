@@ -110,15 +110,16 @@ void applicationInitialize(ZeluEngine& engine) {
 	// Adding main character
 	TexturedRenderHandler* tmp_mchar = new TexturedRenderHandler{};
 	Spirit& spirit{ Context::getInstance().getMainCharacter() };
-	spirit.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp_mchar, true);
+	spirit.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp_mchar, "CHAR", true);
 	spirit.renderHandlerSetup();
 	spirit.scale(0.75f, 0.75f, 0.75f);
 	spirit.translateToPosition(0.0f, 2.0f, -4.0f);
 	spirit.updateTransformations();
 
+	// Adding NPCs
 	TexturedRenderHandler* tmp = new TexturedRenderHandler{};
 	EnmSpirit& enm_spirit{ Context::getInstance().getFirstUnusedSpirit() };
-	enm_spirit.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp, true);
+	enm_spirit.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp, "NPC", true);
 	enm_spirit.renderHandlerSetup();
 	enm_spirit.translateToPosition(0.0f, 2.0f, 120.0f);
 	enm_spirit.setStart(0.0f, 2.0f, 120.0f);
@@ -127,7 +128,7 @@ void applicationInitialize(ZeluEngine& engine) {
 
 	TexturedRenderHandler* tmp2 = new TexturedRenderHandler{};
 	EnmSpirit& enm_spirit2{ Context::getInstance().getFirstUnusedSpirit() };
-	enm_spirit2.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp2, true);
+	enm_spirit2.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp2, "NPC", true);
 	enm_spirit2.renderHandlerSetup();
 	enm_spirit2.translateToPosition(-4.0f, 2.0f, 80.0f);
 	enm_spirit2.setStart(-4.0f, 2.0f, 80.0f);
@@ -136,7 +137,7 @@ void applicationInitialize(ZeluEngine& engine) {
 
 	TexturedRenderHandler* tmp3 = new TexturedRenderHandler{};
 	EnmSpirit& enm_spirit3{ Context::getInstance().getFirstUnusedSpirit() };
-	enm_spirit3.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp3, true);
+	enm_spirit3.initialize(model_fac.getModel(CONSTANTS::SPIRIT_MODEL_NAME), tex_fac.getTexture(CONSTANTS::SPIRIT_MODEL_NAME), *tmp3, "NPC", true);
 	enm_spirit3.renderHandlerSetup();
 	enm_spirit3.translateToPosition(10.0f, 2.0f, 180.0f);
 	enm_spirit3.setStart(10.0f, 2.0f, 180.0f);
